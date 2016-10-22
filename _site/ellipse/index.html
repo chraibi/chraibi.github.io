@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>About me</title>
+    <title>boost - minimal working example</title>
     <meta name="description" content="">
 
     <!-- Google Authorship Markup -->
@@ -14,15 +14,15 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@MohcineChraibi">
-    <meta name="twitter:title" content="About me">
+    <meta name="twitter:title" content="boost - minimal working example">
     <meta name="twitter:description" content="">
     
     <meta property="twitter:image:src" content="http://chraibi.github.io/assets/img/totoro.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="http://chraibi.github.io/about/">
-    <meta property="og:title" content="About me">
+    <meta property="og:url" content="http://chraibi.github.io/ellipse/">
+    <meta property="og:title" content="boost - minimal working example">
     
     <meta property="og:image" content="http://chraibi.github.io/assets/img/totoro.png">
     
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="Mohcine Chraibi">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="About me"/>
+    <meta itemprop="name" content="boost - minimal working example"/>
     <meta itemprop="description" content="">
     <meta itemprop="image" content="http://chraibi.github.io/assets/img/blog-image.png"/>
 
@@ -57,7 +57,7 @@
     <meta name="theme-color" content="#5d4d7a">
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="http://chraibi.github.io/about/">
+    <link rel="canonical" href="http://chraibi.github.io/ellipse/">
     <link rel="alternate" type="application/rss+xml" title="Mohcine Chraibi" href="http://chraibi.github.io/feed.xml" />
 </head>
 
@@ -84,7 +84,7 @@
   
     <ul>
       <li><span>1</span></li>
-      <li><span> /about/</span></li>
+      <li><span> /ellipse/</span></li>
       <li><span>⌘ blogspace  λ </span></li>
       <li><span>* Menu</span></li>
     </ul>
@@ -157,43 +157,55 @@
                     <time itemprop="datePublished" datetime="2016-10-22 14:26:00 +0200">22 Oct 2016</time>
                 </div>
             
-            <h1 class="post-title" itemprop="name">About me</h1>
+            <h1 class="post-title" itemprop="name">boost - minimal working example</h1>
 
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
-                <p>I am a post-doc at <a href="http://www.fz-juelich.de">Forschungszentrum Jülich</a>.
-My research topic is pedestrian dynamics, focusing on the development of mathematical models 
-to describe the motion of pedestrians.</p></p>
+                <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-<p>In November 2008 I completed my studies at <a href="http://www.tu-harburg.de/">Hamburg University of Technology</a>. 
-The subject of my <a href="http://juwel.fz-juelich.de:8080/dspace/handle/2128/3663">Diploma Thesis</a> was titled: 
-"Ordinary Differential Equations to Describe Pedestrian Dynamics" (German).  
+<p>Usually, I experiment with fresh dock-images different configurations and whether they work well 
+for <a href="www.jupedsim">JuPedSim</a>. Since, some packages of <code>JuPedSim</code> depend on some <a href="www.boost.de">boost</a> libraries (geometry), 
+I use this <em>minimal working</em> example to check the version of the installed boost.</p>
+<div class="highlight"><pre><code class="language-c++" data-lang="c++"><span class="cp">#include &lt;boost/geometry.hpp&gt;
+#include &lt;boost/geometry/geometries/point_xy.hpp&gt;
+#include &lt;boost/geometry/geometries/polygon.hpp&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">boost</span><span class="o">::</span><span class="n">geometry</span><span class="p">;</span>
 
-In my <a href="http://juser.fz-juelich.de/record/21705">PhD thesis</a> (May 2012 at the institute of theoretical physics in Cologne University) I investigated validated force-based models for pedestrian dynamics. </p>
 
-<h1>Teaching</h1>
-
-<p>At the department <a href="http://www.asim.uni-wuppertal.de/en.html">Computer Simulation for Fire Safety and 
-Pedestrian Traffic</a> in the University of Wuppertal 
-I have some educational activities. Besides, supervising PhD/master/bachelor students I give the following lectures:</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Using Boost "</span>
+          <span class="o">&lt;&lt;</span> <span class="n">BOOST_VERSION</span> <span class="o">/</span> <span class="mi">100000</span>     <span class="o">&lt;&lt;</span> <span class="s">"."</span>  <span class="c1">// major version
+</span>          <span class="o">&lt;&lt;</span> <span class="n">BOOST_VERSION</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">&lt;&lt;</span> <span class="s">"."</span>  <span class="c1">// minor version
+</span>          <span class="o">&lt;&lt;</span> <span class="n">BOOST_VERSION</span> <span class="o">%</span> <span class="mi">100</span>                <span class="c1">// patch level
+</span>          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Using the following <a href="https://cst.version.fz-juelich.de/jupedsim/jpscore/snippets/3">CMakeLists.txt</a> 
+the compilation of the aforementioned file goes like</p>
 
 <ul>
-<li>&quot;Informatics for engineers&quot; (Summer)</li>
-<li>&quot;Pedestrian Dynamics&quot; (Winter)</li>
+<li><code>cmake .</code></li>
+<li><code>make</code></li>
+<li><code>run ./main</code></li>
 </ul>
+
+<p>(of course no need to use CMake, but I prefer to. oO )</p>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://chraibi.github.io/about/%20via%20&#64;MohcineChraibi&hashtags=Chraibi,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://chraibi.github.io/ellipse/%20via%20&#64;MohcineChraibi&hashtags=Chraibi, code,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://chraibi.github.io/about/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://chraibi.github.io/ellipse/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://chraibi.github.io/about/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://chraibi.github.io/ellipse/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>
@@ -210,7 +222,7 @@ I have some educational activities. Besides, supervising PhD/master/bachelor stu
         disqus_loaded = true;
         var disqus_shortname = 'm.chraibi';
         var disqus_title = '';
-        var disqus_url = '/about/';
+        var disqus_url = '/ellipse/';
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);

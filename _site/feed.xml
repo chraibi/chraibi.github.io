@@ -5,9 +5,37 @@
     <description>A blog about Mohcine Chraibi ...</description>
     <link>http://chraibi.github.io/</link>
     <atom:link href="http://chraibi.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Oct 2016 13:01:35 +0200</pubDate>
-    <lastBuildDate>Sat, 22 Oct 2016 13:01:35 +0200</lastBuildDate>
+    <pubDate>Sat, 22 Oct 2016 18:33:44 +0200</pubDate>
+    <lastBuildDate>Sat, 22 Oct 2016 18:33:44 +0200</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>boost - minimal working example</title>
+        <description>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; &lt;p&gt;Usually, I experiment with fresh dock-images different configurations and whether they work well for &lt;a href=&quot;www.jupedsim&quot;&gt;JuPedSim&lt;/a&gt;. Since, some packages of &lt;code&gt;JuPedSim&lt;/code&gt; depend on some &lt;a href=&quot;www.boost.de&quot;&gt;boost&lt;/a&gt; libraries (geometry), I use this &lt;em&gt;minimal working&lt;/em&gt; example to check the version of the installed boost.&lt;/p&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;boost/geometry.hpp&amp;gt; #include &amp;lt;boost/geometry/geometries/point_xy.hpp&amp;gt; #include &amp;lt;boost/geometry/geometries/polygon.hpp&amp;gt; #include &amp;lt;iostream&amp;gt; &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;geometry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Using Boost &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BOOST_VERSION&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;.&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// major version...</description>
+        <pubDate>Sat, 22 Oct 2016 14:26:00 +0200</pubDate>
+        <link>http://chraibi.github.io/ellipse/</link>
+        <guid isPermaLink="true">http://chraibi.github.io/ellipse/</guid>
+        
+        <category>Chraibi, code</category>
+        
+        
+        <category>work</category>
+        
+      </item>
+    
+      <item>
+        <title>About me</title>
+        <description>&lt;p&gt;I am a post-doc at &lt;a href=&quot;http://www.fz-juelich.de&quot;&gt;Forschungszentrum Jülich&lt;/a&gt;. My research topic is pedestrian dynamics, focusing on the development of mathematical models to describe the motion of pedestrians.&lt;/p&gt;&lt;/p&gt; &lt;p&gt;In November 2008 I completed my studies at &lt;a href=&quot;http://www.tu-harburg.de/&quot;&gt;Hamburg University of Technology&lt;/a&gt;. The subject of my &lt;a href=&quot;http://juwel.fz-juelich.de:8080/dspace/handle/2128/3663&quot;&gt;Diploma Thesis&lt;/a&gt; was titled: &quot;Ordinary Differential Equations to Describe Pedestrian Dynamics&quot; (German). In my &lt;a href=&quot;http://juser.fz-juelich.de/record/21705&quot;&gt;PhD thesis&lt;/a&gt; (May 2012 at the institute of theoretical physics in Cologne University) I investigated validated force-based models for pedestrian dynamics. &lt;/p&gt; &lt;h1&gt;Teaching&lt;/h1&gt; &lt;p&gt;At the department &lt;a href=&quot;http://www.asim.uni-wuppertal.de/en.html&quot;&gt;Computer Simulation for Fire Safety and Pedestrian Traffic&lt;/a&gt; in the University of Wuppertal...</description>
+        <pubDate>Sat, 22 Oct 2016 14:26:00 +0200</pubDate>
+        <link>http://chraibi.github.io/about/</link>
+        <guid isPermaLink="true">http://chraibi.github.io/about/</guid>
+        
+        <category>Chraibi</category>
+        
+        
+        <category>about me</category>
+        
+      </item>
     
   </channel>
 </rss>

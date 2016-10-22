@@ -1,3 +1,19 @@
 [
   
+    {
+      "title"    : "boost - minimal working example",
+      "category" : "work",
+      "tags"     : "Chraibi, code",
+      "url"      : "/ellipse/",
+      "date"     : "22 Oct 2016"
+    } ,
+  
+    {
+      "title"    : "About me",
+      "category" : "about me",
+      "tags"     : "Chraibi",
+      "url"      : "/about/",
+      "date"     : "22 Oct 2016"
+    } 
+  
 ]

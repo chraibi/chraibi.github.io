@@ -14,7 +14,7 @@ gplus_username:  m.chraibi
 disqus_username: m.chraibi
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 highlighter: rouge
 permalink: /:title/
 
@@ -22,7 +22,7 @@ permalink: /:title/
 # html minify
 compress_html:
   clippings: all
-  comments: all
+  comments: none
   endings: []
   profile: false
 
