@@ -1,7 +1,7 @@
 # Site settings
 title: Mohcine Chraibi
 description: "A blog about Mohcine Chraibi"
-baseurl: "/_posts" # the subpath of your site
+#baseurl: "/_posts" # the subpath of your site
 url: "http://chraibi.github.io"
 
 # User settings
