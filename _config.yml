@@ -42,7 +42,7 @@ links:
 projects:
   - name: JuPedSim
     url: http://www.jupedsim.org
-  - name: Cellular automata vim-frontend
+  - name: cellular automata
     url: https://github.com/chraibi/cellular_automata
   - name: BaSiGo
     url: http://www.fz-juelich.de/ias/jsc/EN/Research/ModellingSimulation/CivilSecurityTraffic/Projects/BaSiGo/_node.html
