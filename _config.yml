@@ -1,17 +1,17 @@
 # Site settings
-title: Mohcine Chraibi
-description: "A blog about Mohcine Chraibi"
-#baseurl: "/_posts" # the subpath of your site
-url: "http://chraibi.github.io"
+title: Lorem Ipsum - Web Developer
+description: "A blog about lorem ipsum ..."
+#baseurl: "/space-jekyll-template" # the subpath of your site
+url: "http://victorvoid.github.io"
 
 # User settings
-username: Mohcine Chraibi
+username: lorem ipsum
 user_title: Lorem Ipsum - FrontEnd
-email: mohcine@chraibi.de
-twitter_username: MohcineChraibi
-github_username:  chraibi
-#gplus_username:  loremipsum
-#disqus_username: loremipsum
+email: lorem.lorem@ipsum.com
+twitter_username: loremipsum
+github_username:  loremipsum
+gplus_username:  loremipsum
+disqus_username: loremipsum
 
 # Build settings
 markdown: kramdown
