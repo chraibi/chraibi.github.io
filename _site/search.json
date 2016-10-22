@@ -2,26 +2,10 @@
   
     {
       "title"    : "Sharding in MongoDB",
-      "category" : "space-jekyll-template-masterJekyll is awesome",
-      "tags"     : "mongodb",
-      "url"      : "/space-jekyll-template/sharding/",
-      "date"     : "12 Sep 2016"
-    } ,
-  
-    {
-      "title"    : "Sharding in MongoDB",
       "category" : "Jekyll is awesome",
       "tags"     : "mongodb",
       "url"      : "/space-jekyll-template/sharding/",
       "date"     : "12 Sep 2016"
-    } ,
-  
-    {
-      "title"    : "Github is awesome",
-      "category" : "space-jekyll-template-masterGithub is awesome",
-      "tags"     : "mongodb",
-      "url"      : "/space-jekyll-template/space/",
-      "date"     : "12 Mar 2016"
     } ,
   
     {
