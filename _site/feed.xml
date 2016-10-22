@@ -3,10 +3,10 @@
   <channel>
     <title>Mohcine Chraibi</title>
     <description>A blog about Mohcine Chraibi ...</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Oct 2016 12:39:00 +0200</pubDate>
-    <lastBuildDate>Sat, 22 Oct 2016 12:39:00 +0200</lastBuildDate>
+    <link>http://chraibi.github.io/</link>
+    <atom:link href="http://chraibi.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 22 Oct 2016 13:01:35 +0200</pubDate>
+    <lastBuildDate>Sat, 22 Oct 2016 13:01:35 +0200</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
   </channel>
