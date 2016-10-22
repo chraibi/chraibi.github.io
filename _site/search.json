@@ -1,0 +1,19 @@
+[
+  
+    {
+      "title"    : "Sharding in MongoDB",
+      "category" : "Jekyll is awesome",
+      "tags"     : "mongodb",
+      "url"      : "/space-jekyll-template/sharding/",
+      "date"     : "12 Sep 2016"
+    } ,
+  
+    {
+      "title"    : "Github is awesome",
+      "category" : "Github is awesome",
+      "tags"     : "mongodb",
+      "url"      : "/space-jekyll-template/space/",
+      "date"     : "12 Mar 2016"
+    } 
+  
+]
