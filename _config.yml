@@ -9,12 +9,12 @@ username: Mohcine Chraibi
 user_title: Mohcine Chraibi
 email: mohcine@chraibi.de       
 twitter_username: MohcineChraibi
-github_username:  chraibi
+<github_username:  chraibi
 gplus_username:  m.chraibi
 disqus_username: m.chraibi
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 highlighter: rouge
 permalink: /:title/
 
@@ -42,7 +42,7 @@ links:
 projects:
   - name: JuPedSim
     url: http://www.jupedsim.org
-  - name: Cellular automata vim-frontend
+  - name: cellular automata
     url: https://github.com/chraibi/cellular_automata
   - name: BaSiGo
     url: http://www.fz-juelich.de/ias/jsc/EN/Research/ModellingSimulation/CivilSecurityTraffic/Projects/BaSiGo/_node.html
