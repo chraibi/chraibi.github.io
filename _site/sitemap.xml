@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	
 	  <url>
-		<loc>http://chraibi.github.io/ellipse/</loc>
+		<loc>http://localhost:4000/boost/</loc>
 	  </url>
 	
 	  <url>
-		<loc>http://chraibi.github.io/about/</loc>
+		<loc>http://localhost:4000/about/</loc>
 	  </url>
 	
 </urlset>
