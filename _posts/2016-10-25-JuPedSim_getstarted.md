@@ -19,7 +19,7 @@ In this tutorial we will see how to use [JuPedSim](www.jupedsim.org).
 - You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2EpJbI).
 
 
-![simulation](../assets/img/logo.png)
+![logo](../assets/img/logo.png)
 
 
 
