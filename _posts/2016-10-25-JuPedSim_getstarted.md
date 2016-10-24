@@ -12,7 +12,7 @@ serie: learn
 ---
 
 
-In this tutorial we will see how to use [JuPedSim](www.jupedsim.org). 
+In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org). 
 
 ![logo](../assets/img/logo.png)
 
