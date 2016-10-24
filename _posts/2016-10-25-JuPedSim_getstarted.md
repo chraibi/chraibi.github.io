@@ -14,18 +14,20 @@ serie: learn
 
 In this tutorial we will see how to use [JuPedSim](www.jupedsim.org). 
 
+![logo](../assets/img/logo.png)
+
+**Note**
+
 - I will focus only on jpscore (simulation module).
 - Besides, I will take the example of CLion.
 - You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2EpJbI).
 
 
-![logo](../assets/img/logo.png)
 
 
+**Get the code of `jpscore`** 
 
-**Download the code of `jpscore`** 
-
-- From [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
+- Download the code from the [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
 - Once the download is finished, change to the directory of the code. 
 - The git branch will be by default `develop`. 
 
