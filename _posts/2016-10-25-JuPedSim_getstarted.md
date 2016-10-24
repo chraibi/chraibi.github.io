@@ -13,20 +13,23 @@ serie: learn
 
 
 In this tutorial we will see how to use [JuPedSim](www.jupedsim.org). 
-I will focus only on jpscore (simulation module).
 
-![simulation](../assets/img/simu.png)
+- I will focus only on jpscore (simulation module).
+- Besides, I will take the example of CLion.
+- You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2EpJbI).
 
-Besides, I will take the example of CLion.
-(but you can still use your preferred IDE..)
 
-You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2EpJbI).
+![simulation](../assets/img/logo.png)
+
+
 
 **Download the code of `jpscore`** 
 
 - From [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
 - Once the download is finished, change to the directory of the code. 
-- The git branch will be by default `develop`. This is the main branch of the code.
+- The git branch will be by default `develop`. 
+
+
 
 **Create a project**
 
@@ -38,8 +41,7 @@ You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2E
   --> click on `Build`. 
 - `jpscore` has quit a lot of source files. Therefore, the compilation of the whole project takes some time ...
 - In the directory inputfiles as well as in demos you can find some `inifiles` to start with. 
-- After running a simulation let's have a look at the result.
-  You can edit the inifile to have more control over the simulation. The result of the simulation is in the file trajectories.xml. 
+- You can edit the inifile to have more control over the simulation. The result of the simulation is in the file trajectories.xml. 
 
 **Visualization of the results** 
 
@@ -50,6 +52,7 @@ You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2E
 
 - If you have any questions or problems please open an issue. Use the [Gitlab issue tracker](https://cst.version.fz-juelich.de/jupedsim/jpscore/issues). 
 
+![simulation](../assets/img/simu.png)
 
 
 
