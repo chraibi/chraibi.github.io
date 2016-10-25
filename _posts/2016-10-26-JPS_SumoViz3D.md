@@ -8,7 +8,7 @@ tags:
 description: '3D visualization'
 categories:
 - JuPedSim
-serie: learn
+twitter_text: "JuPedSim meets SumoViz3D"
 ---
 
 

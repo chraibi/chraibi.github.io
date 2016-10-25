@@ -8,6 +8,7 @@ tags:
 description: 'JuPedSim: Get started'
 categories:
 - JuPedSim
+twitter_text: "Getting started with JuPedSim"
 serie: learn
 ---
 
