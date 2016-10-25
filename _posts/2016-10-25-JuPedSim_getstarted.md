@@ -18,8 +18,8 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 
 **Note**
 
-- I will focus only on jpscore (simulation module).
-- Besides, I will take the example of CLion.
+- I will focus only on `jpscore` (simulation module).
+- Besides, I will take the example of `CLion`.
 - You can *see* this tutorial on [YouTube](https://www.youtube.com/watch?v=Achsd2EpJbI).
 
 
@@ -29,8 +29,7 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 
 - Download the code from the [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
 - Once the download is finished, change to the directory of the code. 
-- The git branch will be by default `develop`. 
-
+- The git branch will be by default `develop` (`git status` to check). 
 
 
 **Create a project**
@@ -39,8 +38,8 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 - Open a project. The "project file" in our case is the file `CMakelists.txt`. 
   `CLion` will read it, and then index the whole project. This may take some time.
   (this initialization process takes place only for the first setup of the project.)
-- When `CLion` is done with the indexing, start building the project. 
-  --> click on `Build`. 
+- Start building the project --> click on `Build`. 
+  
 - `jpscore` has quit a lot of source files. Therefore, the compilation of the whole project takes some time ...
 - In the directory inputfiles as well as in demos you can find some `inifiles` to start with. 
 - You can edit the inifile to have more control over the simulation. The result of the simulation is in the file trajectories.xml. 
@@ -48,7 +47,7 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 **Visualization of the results** 
 
 - Open `jpsvis`[^1] and visualize the trajectory-file.
-- Next time I will show how to work with jpsvis. 
+- Next time I will show how to work with `jpsvis`. 
 
 **Questions** 
 
