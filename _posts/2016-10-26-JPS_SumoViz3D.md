@@ -2,13 +2,15 @@
 layout: post
 title:  "JuPedSim meets SumoViz3D"
 image: '/assets/img/totoro.png'
-date:   2016-10-26 10:21:00
+date:   2016-10-25 12:26:00
 tags:
-- JuPedSim, Simulation
+- JuPedSim
 description: '3D visualization'
 categories:
 - JuPedSim
+serie: learn
 ---
+
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -71,5 +73,4 @@ I found these keystrokes helpful to control the scene:
 Get the script from the `jpscore` [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore/blob/develop/scripts/vizUnity_geometry.py). 
 
 Enjoy!
-
 
