@@ -14,8 +14,7 @@ twitter_text: "JuPedSim meets SumoViz3D"
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
- Someone sent me a link to a nice project Daniel Buechele.
- It is called [SumoViz3D](https://github.com/danielbuechele/SumoViz3D):  
+ Someone sent me a link to a nice project called [SumoViz3D](https://github.com/danielbuechele/SumoViz3D):  
 `a WebGL-based post-visualization of pedestrian simulation data.` 
  
  
@@ -28,7 +27,7 @@ twitter_text: "JuPedSim meets SumoViz3D"
  - show the trajectories of pedestrians.
  - live plots of different statistics e.g. (\\(N, t\\))-curve or (\\(v, t\\))-curve.
 
-[Here](https://vimeo.com/100908789) a nice demo on Vimeo (German speaker but whatever).
+[Here](https://vimeo.com/100908789) is a nice demo on Vimeo (German speaker but whatever).
 
 Well now, would it not be great to use this fantastic project to visualize simulations created by `JuPedSim`?
 
@@ -37,7 +36,7 @@ Well now, would it not be great to use this fantastic project to visualize simul
 - a geometry file (called `geometry.txt`) 
 - and a trajectory file called `b090_combined.txt`.
 
-I'm sure the names can be changed, but as I said before, the code is not actively developed. So, for the time being
+the names are hard coded, but surely can be changed in the code. For the time being
  let's just don't care. 
  
 What we need is a parser to convert `JuPedSim`'s files in `SumoVis3D` required formats, move the 
@@ -47,10 +46,10 @@ produced files in the directory where `SumoVis3D` lives and fire it up:
 # call the parser 
 python3 scripts/vizUnity_geometry.py jupedsim_geometry.xml jupedsim_trajectory.xml
 
-# mv the files to SumoVis directory
+# mv the files to SumoVis3D directory
 mv geometry.txt b090_combined.txt ~/SumoVizUnity
 
-# run SumoViz
+# run SumoViz3D
 ./SumoViz\ Unity.app/Contents/MacOS/SumoViz\ Unity SumoViz\ Unity
 ```
 
