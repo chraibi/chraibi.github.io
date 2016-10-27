@@ -29,11 +29,24 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 **Get the code of `jpscore`** 
 
 - Download the code from the [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
+
+```bash
+git clon https://cst.version.fz-juelich.de/jupedsim/jpscore
+```
+
 - Once the download is finished, change to the directory of the code. 
-- The git branch will be by default `develop` (`git status` to check). 
+
+```bash
+cd jpscore
+```
+
+- The git branch will be by default `develop` (write `git status` to check). 
 
 
 **Create a project**
+
+If you don't have `CLion` yet, you can get it from [here](https://www.jetbrains.com/clion/specials/clion/clion.html?&utm_source=bing&utm_medium=cpc&utm_campaign=EMEA_en_DE_Clion_Branded&utm_term=Clion&utm_content=Clion_branded_&gclid=CMnM1Yn--s8CFU_LGQod-CkMZQ&gclsrc=ds&dclid=CNfj14n--s8CFUepUQodSesITQ).
+It is free for students and open-source projects.
 
 - Open `CLion`.
 - Open a project. The "project file" in our case is the file `CMakelists.txt`. 
