@@ -15,7 +15,7 @@ twitter_text: "JuPedSim meets SumoVizUnity"
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
  Someone sent me a link to a nice project called [SumoVizUnity](https://github.com/danielbuechele/SumoVizUnity):  
-`a WebGL-based post-visualization of pedestrian simulation data.` 
+a `Unity3D` project for visualization of pedestrian simulations.
  
  
  Although it seems the project is not actively developed[^1], however it is still very easy to use and has some nice features
