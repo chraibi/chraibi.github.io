@@ -1,9 +1,8 @@
 # Site settings
 title: Mohcine Chraibi
 description: "A blog about Mohcine Chraibi ..."
-#baseurl: "/space-jekyll-template" # the subpath of your site
 url: "http://chraibi.github.io"
-
+baseurl: ""
 # User settings
 username: Mohcine Chraibi
 user_title: Mohcine Chraibi
