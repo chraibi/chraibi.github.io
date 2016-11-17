@@ -2,12 +2,12 @@
 layout: post
 title:  "Writing documentation code from markdown files"
 image: '/assets/img/totoro.png'
-date:   2016-11-27 21:14:00
+date:   2016-11-16 21:14:00
 tags:
-- JuPedSim
+- JuPedSim, Pedestrian Dynamics
 description: 'JuPedSim Guide'
 categories:
-- Jupedsim
+- JuPedSim
 twitter_text: "Writing documentation code from markdown files"
 serie: learn
 ---
@@ -21,20 +21,20 @@ as straightforward as it sounds. In this [article](http://peterlu.github.io/2014
 Peter J. Lu gave a nice summary what possibilities there are to convert markdown to pdf file and why there are 
 a bunch of problems that you face when you do so.
 
-The solution that he uses requires some **manual** cleanup of the files. 
+The solution that he uses delivers the "best" possible result, but still requires some **manual** cleanup of the files. 
 
 Here are the steps: 
 
 - With `Kramdown` convert the markdown file to latex.
 
-  ```bash
+  ```python
   kramdown _posts/file.md --no-auto-ids --output latex > file.tex
   ```
 
 - Cleanup `file.tex` by removing  the YAML headers
-- Fixing the image paths (remove Liquid tags like `site.baseurl`, etc)
+- Fix the image paths:  replace liquid tags like `site.baseurl` by the an absolute path.
 
-Here a python script that automates the above mentioned steps
+This  python script automates the above mentioned steps
 
 ```python
 #======================================
