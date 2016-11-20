@@ -19,7 +19,7 @@ the documentation is not as straightforward as expected.
 
 ## A typical  markdown file
 
-A markdown file used to document JuPedSim has three objects that need to be rendered correctly in the pdf file. 
+A typical  markdown file may have three objects that need to be rendered correctly in the pdf file: 
 
 - Images with liquid syntax
 
@@ -35,13 +35,13 @@ A markdown file used to document JuPedSim has three objects that need to be rend
 </crossing>
 ```
 
-- In text embedded latex like \$\$\alpha$$ or equations like 
+- and in  embedded latex like \$\$\alpha$$ or equations like 
 
 \$\$
-\alpha = \frac{\beta}{\gamma},
+\alpha = \frac{\beta}{\gamma}.
 $$
 
-should be rendered correctly.
+
 
 ## Solution 
 In this [article](http://peterlu.github.io/2014/08/03/markdown_latex_pdf.html)
@@ -50,7 +50,7 @@ a bunch of problems that you face when you do so.
 
 The solution that he uses delivers the "best" possible result, but still requires some **manual** cleanup of the files. 
 
-Here are the steps: 
+Here is a script that helps fulfilling this "manual" cleaning in an automatic way.  The steps to follow are: 
 
 - With `Kramdown` convert the markdown file to latex.
 
@@ -70,7 +70,7 @@ Here are the steps:
             newlines.append(line)
   ```
   
-- Fix the image paths:  replace liquid tags like `site.baseurl` by the an absolute path.
+- Fix the image paths:  replace liquid tags like `site.baseurl` by an absolute path.
 
   ```python
   line = re.sub(r"\{\{\s* site.baseurl \s*\}\}", os.getcwd(), line)
@@ -83,7 +83,7 @@ The final step is to `\input{}` them in a master latex file to produce the final
 
 ## Result
 
-the above mentioned criteria are all given in  this  [sample article](/2016-11-20-test-md2pdf.html) 
+The above mentioned criteria are all given in  this  [sample article](/2016-11-20-test-md2pdf.html) 
 
 And here is the resulting [pdf file](https://fz-juelich.sciebo.de/index.php/s/yIANyTztEprayuI).
 
