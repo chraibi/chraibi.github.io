@@ -31,7 +31,8 @@ Here are the steps:
   kramdown _posts/file.md --no-auto-ids --output latex > file.tex
   ```
 
-- Cleanup `file.tex` by removing  the YAML headers  
+- Cleanup `file.tex` by removing  the YAML headers:
+
   ```python 
   for line in lines:
   # look for first appearance of "---"
