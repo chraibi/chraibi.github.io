@@ -35,7 +35,7 @@ A typical  markdown file may have three objects that need to be rendered correct
 </crossing>
 ```
 
-- and in  embedded latex like \$\$\alpha$$ or equations like 
+- and embedded latex like \$\$\alpha$$ or equations like 
 
 \$\$
 \alpha = \frac{\beta}{\gamma}.
