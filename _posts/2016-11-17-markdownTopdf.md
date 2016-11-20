@@ -31,7 +31,7 @@ Here are the steps:
   kramdown _posts/file.md --no-auto-ids --output latex > file.tex
   ```
 
-- Cleanup `file.tex` by removing  the YAML headers
+- Cleanup `file.tex` by removing  the YAML headers  
   ```python 
   for line in lines:
   # look for first appearance of "---"
@@ -43,6 +43,7 @@ Here are the steps:
   ```
   
 - Fix the image paths:  replace liquid tags like `site.baseurl` by the an absolute path.
+
   ```python
   line = re.sub(r"\{\{\s* site.baseurl \s*\}\}", os.getcwd(), line)
   ```
