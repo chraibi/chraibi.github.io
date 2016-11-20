@@ -3,9 +3,7 @@ layout: post
 title:  "Writing documentation code from markdown files"
 image: '/assets/img/totoro.png'
 date:   2016-11-16 21:14:00
-tags:
-- JuPedSim, Pedestrian Dynamics
-description: 'JuPedSim Guide'
+description: 'Making JuPedSim Guide'
 categories:
 - JuPedSim
 twitter_text: "Writing documentation code from markdown files"
@@ -16,9 +14,38 @@ For the documentation of  [JuPedSim](http://jupedsim.org) we decided to go with 
 where every single article is written in markdown and published using Jekyll on GitHub-Pages. 
 Very simple approach that allows focusing on writing the docs without any technical distraction. 
 
-However, surprisingly, using the same `markdown` files to  produce a printable pdf file for the documentation is not
-as straightforward as it sounds. In this [article](http://peterlu.github.io/2014/08/03/markdown_latex_pdf.html)
-Peter J. Lu gave a nice summary what possibilities there are to convert markdown to pdf file and why there are 
+However, somehow surprisingly, using the same `markdown` files to  produce a printable pdf file for 
+the documentation is not as straightforward as expected. 
+
+## A typical  markdown file
+
+A markdown file used to document JuPedSim has three objects that need to be rendered correctly in the pdf file. 
+
+- Images with liquid syntax
+
+```
+![Simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.gif)
+```
+
+- Code snippets 
+
+```xml
+<crossing>
+	<vertex px="10.0" py="6.0"/>
+</crossing>
+```
+
+- In text embedded latex like \$\$\alpha$$ or equations like 
+
+\$\$
+\alpha = \frac{\beta}{\gamma},
+$$
+
+should be rendered correctly.
+
+## Solution 
+In this [article](http://peterlu.github.io/2014/08/03/markdown_latex_pdf.html)
+Peter J. Lu gives a nice summary what possibilities there are to convert markdown to pdf file and why there are 
 a bunch of problems that you face when you do so.
 
 The solution that he uses delivers the "best" possible result, but still requires some **manual** cleanup of the files. 
@@ -53,6 +80,12 @@ Download the script that automates the above mentioned steps from [here](https:/
 
 The script creates a directory `_tex` and puts all the converted and cleaned tex files in it. 
 The final step is to `\input{}` them in a master latex file to produce the finale pdf documentation. 
+
+## Result
+
+the above mentioned criteria are all given in  this  [sample article](/2016-11-20-test-md2pdf.html) 
+
+And here is the resulting [pdf file](https://fz-juelich.sciebo.de/index.php/s/yIANyTztEprayuI).
 
 ## Tips
 
