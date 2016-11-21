@@ -24,7 +24,7 @@ A typical  markdown file may have three objects that need to be rendered correct
 - Images with liquid syntax
 
 ```
-![Simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.gif)
+![Simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.png)
 ```
 
 - Code snippets 
@@ -48,11 +48,11 @@ In this [article](http://peterlu.github.io/2014/08/03/markdown_latex_pdf.html)
 Peter J. Lu gives a nice summary what possibilities there are to convert markdown to pdf file and why there are 
 a bunch of problems that you face when you do so.
 
-The solution that he uses delivers the "best" possible result, but still requires some **manual** cleanup of the files. 
+The solution that he uses delivers the "best" possible result, but still requires some **manual** processing of the files. 
 
-Here is a script that helps fulfilling this "manual" cleaning in an automatic way.  The steps to follow are: 
+Here is a script that helps fulfilling this "manual" cleaning in an `automatic` way.  The steps to follow are: 
 
-- With `Kramdown` convert the markdown file to latex.
+- Convert the markdown file to latex with `Kramdown`.
 
   ```python
   kramdown _posts/file.md --no-auto-ids --output latex > file.tex
@@ -83,7 +83,7 @@ The final step is to `\input{}` them in a master latex file to produce the final
 
 ## Result
 
-The above mentioned criteria are all given in  this  [sample article](/2016-11-20-test-md2pdf.html) 
+The above mentioned criteria are all given in  this  [sample article](/2016-11-20-test-md2pdf.html). 
 
 And here is the resulting [pdf file](https://fz-juelich.sciebo.de/index.php/s/yIANyTztEprayuI).
 
@@ -93,3 +93,4 @@ Things to keep in mind when writing the markdown files
 
 - Always specify the language of code snippets. 
 - use `$$`-syntax to write math-symbols.
+- Use scaled images. Otherwise, you will have to do so manually in the latex files. 
