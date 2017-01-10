@@ -69,7 +69,7 @@ I found these keystrokes helpful to control the scene:
 
 **Python script** 
 
-Get the script from the `jpscore` [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore/blob/develop/scripts/vizUnity_geometry.py). 
+Get the script from the `jpscore` [repository](https://gitlab.version.fz-juelich.de/jupedsim/jpscore/blob/develop/scripts/vizUnity_geometry.py). 
 
 Enjoy!
 
