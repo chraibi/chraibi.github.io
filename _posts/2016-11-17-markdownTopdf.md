@@ -15,7 +15,7 @@ where every single article is written in markdown and published using Jekyll on 
 Very simple approach that allows focusing on writing the docs without any technical distraction. 
 
 However, somehow surprisingly, using the same `markdown` files to  produce a printable pdf file for 
-the documentation is not as straightforward as expected. 
+the documentation is not as straightforward as was expected. 
 
 ## A typical  markdown file
 
@@ -23,9 +23,9 @@ A typical  markdown file may have three objects that need to be rendered correct
 
 - Images with liquid syntax
 
-```
-![Simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.png)
-```
+<div class="alert alert-info">
+  ![Simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.png)
+</div>
 
 - Code snippets 
 
@@ -76,7 +76,7 @@ Here is a script that helps fulfilling this "manual" cleaning in an `automatic` 
   line = re.sub(r"\{\{\s* site.baseurl \s*\}\}", os.getcwd(), line)
   ```
 
-Download the script that automates the above mentioned steps from [here](https://cst.version.fz-juelich.de/snippets/6)
+Download the script that automates the above mentioned steps from [here](https://gitlab.version.fz-juelich.de/snippets/22)
 
 The script creates a directory `_tex` and puts all the converted and cleaned tex files in it. 
 The final step is to `\input{}` them in a master latex file to produce the finale pdf documentation. 
