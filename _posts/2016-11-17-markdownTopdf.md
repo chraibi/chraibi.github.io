@@ -21,11 +21,10 @@ the documentation is not as straightforward as was expected.
 
 A typical  markdown file may have three objects that need to be rendered correctly in the pdf file: 
 
-- Images with liquid syntax
+ Images with liquid syntax 
 
-<div class="alert alert-info">
-  ![simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.png)
-</div>
+``` ![simulation]( { { site.baseurl  } }/img/kobe.png) ```
+
 
 - Code snippets 
 
