@@ -24,7 +24,7 @@ A typical  markdown file may have three objects that need to be rendered correct
 - Images with liquid syntax
 
 <div class="alert alert-info">
-  ![Simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.png)
+  ![simulation using `jpscore` ]( { { site.baseurl  } }/img/kobe.png)
 </div>
 
 - Code snippets 
