@@ -28,17 +28,11 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 
 **Get the code of `jpscore`** 
 
-- Download the code from the [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
+- Download the code from the [repository](https://gitlab.version.fz-juelich.de/jupedsim/jpscore)
+  (`git clone`)
 
-```bash
-git clone https://gitlab.version.fz-juelich.de/jupedsim/jpscore
-```
 
-- Once the download is finished, change to the directory of the code. 
-
-```bash
-cd jpscore
-```
+- Once the download is finished, change to the directory of the code.
 
 - The git branch will be by default `develop` (write `git status` to check). 
 
