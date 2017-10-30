@@ -31,7 +31,7 @@ In this tutorial we will see how to use [JuPedSim](http://www.jupedsim.org).
 - Download the code from the [repository](https://cst.version.fz-juelich.de/jupedsim/jpscore)
 
 ```bash
-git clon https://cst.version.fz-juelich.de/jupedsim/jpscore
+git clone https://gitlab.version.fz-juelich.de/jupedsim/jpscore
 ```
 
 - Once the download is finished, change to the directory of the code. 
@@ -54,9 +54,9 @@ It is free for students and open-source projects.
   (this initialization process takes place only for the first setup of the project.)
 - Start building the project --> click on `Build`. 
   
-- `jpscore` has quit a lot of source files. Therefore, the compilation of the whole project takes some time ...
+- `jpscore` has quit a lot of source files. Therefore, the compilation of the whole project takes some time (patience T__T)
 - In the directory inputfiles as well as in demos you can find some `inifiles` to start with. 
-- You can edit the inifile to have more control over the simulation. The result of the simulation is in the file trajectories.xml. 
+- You can edit the inifile to have more control over the simulation. The result of the simulation is in the file trajectories.xml. Make sure to read the online documentation [here](http://www.jupedsim.org/jpscore/2016-11-01-inifile). 
 
 **Visualization of the results** 
 
@@ -65,7 +65,7 @@ It is free for students and open-source projects.
 
 **Questions** 
 
-- If you have any questions or problems please open an issue. Use the [Gitlab issue tracker](https://cst.version.fz-juelich.de/jupedsim/jpscore/issues). 
+- Questions? Problems? Open an issue using [GitLab issue tracker](https://gitlab.version.fz-juelich.de/jupedsim/jpscore/issues). 
 
 ![simulation](../assets/img/simu.png)
 
