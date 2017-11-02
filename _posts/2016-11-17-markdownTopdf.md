@@ -28,11 +28,11 @@ A typical  markdown file may have three objects that need to be rendered correct
 
 - Code snippets 
 
-```xml
-<crossing>
+  ```xml
+  <crossing>
 	<vertex px="10.0" py="6.0"/>
-</crossing>
-```
+  </crossing>
+  ```
 
 - and embedded latex like \$\$\alpha$$ or equations like 
 
@@ -85,6 +85,9 @@ The final step is to `\input{}` them in a master latex file to produce the final
 The above mentioned criteria are all given in  this  [sample article](/2016-11-20-test-md2pdf.html). 
 
 And here is the resulting [pdf file](https://fz-juelich.sciebo.de/index.php/s/yIANyTztEprayuI).
+
+The JuPedSim guide is now available in [PDF-format](https://github.com/JuPedSim/JuPedSim.github.io/blob/master/jps_guide/JuPedSim.pdf).
+
 
 ## Tips
 
