@@ -86,7 +86,7 @@ The above mentioned criteria are all given in  this  [sample article](/2016-11-2
 
 And here is the resulting [pdf file](https://fz-juelich.sciebo.de/index.php/s/yIANyTztEprayuI).
 
-The JuPedSim guide is now available in [PDF-format](https://github.com/JuPedSim/JuPedSim.github.io/blob/master/jps_guide/JuPedSim.pdf).
+The JuPedSim guide can be produced as a pdf file. See [PDF-format](https://github.com/JuPedSim/jpscore/blob/master/docs/README.md#producing-a-pdf-file-of-the-documentation).
 
 
 ## Tips
