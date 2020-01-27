@@ -16,6 +16,10 @@ description: "about Mohcine Chraibi"
    Key ID: 4AA20E94
    Fingerprint: 9D6F 1DAC 437B 1CE9 0D11  A068 C03D 2DB8 4AA2 0E94
    ```
+
+<body><svg>calendar.svg</svg></body>
+<iframe src="/assets/img/ecalendar.svg"></iframe>
+
 - [Download PGP public key block.](./mchraibi.asc)
 - [GitHub](https://github.com/chraibi)
 - [JuPedSim](http://jupedsim.org)
