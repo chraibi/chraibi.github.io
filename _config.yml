@@ -43,8 +43,8 @@ projects:
     url: http://www.jupedsim.org
   - name: cellular automata
     url: https://github.com/chraibi/cellular_automata
-  - name: BaSiGo
-    url: http://www.fz-juelich.de/ias/jsc/EN/Research/ModellingSimulation/CivilSecurityTraffic/Projects/BaSiGo/_node.html
+  - name: MADRAS
+    url: https://www.fz-juelich.de/ias/ias-7/EN/Research/Highlights/05_MADRAS/_node.html
 # exclude my node related stuff
 exclude: ['package.json', 'src', 'node_modules']
 # UA-17686252-1
