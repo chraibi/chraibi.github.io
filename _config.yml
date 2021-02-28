@@ -224,6 +224,7 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
+  - _posts/2020-12-31-books.md
   - screenshot.png
   - docs/
 
