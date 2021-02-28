@@ -11,8 +11,16 @@ categories:
 twitter_text: "JuPedSim meets SumoVizUnity"
 ---
 
+3D visualisation of trajectories with Unity
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+### Update 
+
+Check this [repository](https://github.com/chraibi/SumoVizUnity): 3D visualization of trajectories and geometries of crowd simulation software (Optimized for JuPedSim and 3D Geometries)
+
+
+### Some related history
 
  Someone sent me a link to a nice project called [SumoVizUnity](https://github.com/danielbuechele/SumoVizUnity):  
 a `Unity3D` project for visualization of pedestrian simulations.
