@@ -16,7 +16,7 @@ author: Mohcine Chraibi
 navbar-links:
   About Me: "aboutme"
   Projects:
-    - JuPedSim: "https://jupedsim.org"
+    - JuPedSim: "http://jupedsim.org"
     - MADRAS: "https://www.madras-crowds.eu/"
     - Jam: "https://github.com/chraibi/jam"
     - PTR5-Parser: "https://github.com/chraibi/prt5parser"

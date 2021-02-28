@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Mohcine Chraibi
-subtitle: Why you'd want to share my table
+subtitle: About me
 ---
-## About me
+
 Researcher, Emacs-enthusiast, procrastinator and more.
 
 ___
