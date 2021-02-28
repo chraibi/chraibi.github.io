@@ -4,8 +4,6 @@ title: Mohcine Chraibi
 subtitle: Why you'd want to share my table
 ---
 
-<!-- <img itemprop="image" class="img-rounded about_perfil center" src="/assets/img/profile.jpg" alt="Mohcine Chraibi"> -->
-
 
 ## About me
 Researcher, Emacs-enthusiast, procrastinator and more.
