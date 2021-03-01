@@ -49,7 +49,7 @@ A complete list of publication can be found [here](https://www.fz-juelich.de/ias
 
 ___
 
-## Lecture and supervisions
+## Lectures and supervisions
 An overview of my lectures and supervised theses can be found [here]({% post_url 2019-01-01-lectures %}).
 
 ___
