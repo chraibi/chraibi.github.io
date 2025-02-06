@@ -1,237 +1,271 @@
-# Welcome to Beautiful Jekyll!
-# This config file is meant for settings that affect your entire website. When you first
-# set up your website you should go through all these settings and edit them, but after
-# the initial set up you won't need to come back to this file often.
+# https://www.jameswgrant.co.uk/
+# https://github.com/sproogen/modern-resume-theme
+# Site
+repository: sproogen/resume-theme
+favicon: images/favicon.ico
 
-# --- Required options --- #
+# Content configuration version
+version: 2
 
-# Name of website
-title: home
+# Personal info
+name: Mohcine Chraibi
+title: Head of the division Pedestrian Dynamics - Modeling at Civil Safety Research
+email: m.chraibi@fz-juelich.de
+website: https://www.fz-juelich.de/profile/chraibi_m
 
-# Your name to show in the footer
-author: Mohcine Chraibi
+# Dark Mode (true/false/never)
+darkmode: false
 
-# --- List of links in the navigation bar --- #
+# Social links
+github_username: chraibi
+# stackoverflow_username: "00000001"
+# dribbble_username: jekyll
+# facebook_username: jekyll
+# flickr_username: jekyll
+# instagram_username: jameswgrant
+linkedin_username: mohcine-chraibi
+# xing_username: jekyll
+# pinterest_username: jekyll
+youtube_username: "@pedestrianandfiredynamics7738"
+# googleplus_username: +jekyll
+orcid_username: 0000-0002-0999-6807
 
-navbar-links:
-  About Me: "aboutme"
-  Projects:
-    - JuPedSim: "http://jupedsim.org"
-    - MADRAS: "https://www.madras-crowds.eu/"
-    - Jam: "https://github.com/chraibi/jam"
-    - PTR5-Parser: "https://github.com/chraibi/prt5parser"
-    - Cellular Automata: "https://github.com/chraibi/cellular_automata"
-    
-  CV: "http://chraibi.de/cv"
+# Additional icon links
+additional_links:
+- title: Google Scholar
+  icon: fas fa-graduation-cap
+  url: https://scholar.google.com/citations?user=WA1blukAAAAJ
+# - title: jupedsim
+#   icon: fas fa-globe
+#   url: https://www.jupedsim.org
+# - title: another link
+#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
+#   url: Link url (eg. https://google.com)
 
-# --- Logo --- #
+# Google Analytics and Tag Manager
+# Using more than one of these may cause issues with reporting
+# gtm: "GTM-0000000"
+# gtag: "UA-00000000-0"
+# google_analytics: "UA-00000000-0"
 
-# Image to show in the navigation bar - works best with a square image
-# Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/profile.png"
+# About Section
+# about_title: About Me
+about_profile_image: images/profile.jpg
+about_content: | # this will include new lines to allow paragraphs
+  Hi, I'm Mohcine, a senior researcher at Forschungszentrum Jülich focusing on pedestrian dynamics and crowd behavior. My research combines computational modeling with empirical validation to better understand how people move and interact in crowds.
+   I'm really interested in open source software for simulating, analysing and visualising pedestrian dynamics. I think this kind of software is a vital part of scientific practice.
 
-# By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
-
-# If you want to have an image logo in the top-left corner instead of having the title of the website,
-# then specify the following parameter
-#title-img: assets/img/profile.png
+   My research interests are: <mark>Data Analysis</mark>, <mark>Mathematical Modelling</mark>, <mark>Simulation</mark> and <mark>Research Software Development</mark>
 
 
-# --- Footer social media links --- #
+content:
+  - title: Projects # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: top-middle
+        title: "Multi-agent modelling of dense crowd dynamics: Predict & Understand"
+        link: https://www.madras-crowds.eu/
+        icon: fab users-gear
+        link_text: Project Website
+        additional_links:
+          - title:  Streamlit App
+            icon: fas fa-users-cog
+            url: https://madras-data-app.streamlit.app/
+          - title:  Github repository
+            icon: fab fa-github
+            url: https://github.com/MADRAS-crowds/madras-data-app
+          - title:  Zenodo data
+            icon: fas fa-database
+            url: https://zenodo.org/records/13830435
+            
+        quote: >
+          The French-German project MADRAS
+        description: | # this will include new lines to allow paragraphs
+          The goal of this joint-project is to develop models to predict and understand dense crowd movements of 2-8 people per square meter. The research combines neural networks with physics-based modeling to improve upon current models that struggle with high-density scenarios. The project integrates these approaches into an online platform for real-time visualization and comparison with actual crowd data. Using the Festival of Lights as a case study.
+      - layout: top-middle
+        title: "JuPedSim: Flexible and Expressive Pedestrian Simulation"
+        link: https://www.jupedsim.org
+        icon: fab fa-python
+        link_text: Project Website
+        additional_links:
+          - title:  Github repository
+            icon: fab fa-github
+            url: https://github.com/pedestriandynamics/jupedsim
+          - title:  Zenodo data
+            icon: fas fa-database
+            url: https://doi.org/10.5281/zenodo.1293771
+            
+        quote: >
+          Open-source Python package with a C++ core to simulate pedestrian dynamics.
+        description: | # this will include new lines to allow paragraphs
+          JuPedSim bridges core functionality with user interaction through a lightweight and expressive Python API. This interface enables users to define simulation scenarios, prototype complex behaviors, and leverage core components with ease. The latest version transforms JuPedSim into a Python-based library, offering greater flexibility in simulation configuration and integration.
 
-# Select the social network links that you want to show in the footer.
-# Uncomment the links you want to show and add your information to each one.
-social-network-links:
-  email: "m.chraibi@protonmail.com"
-#  facebook: deanattali
-  github: chraibi
-  twitter: MohcineChraibi
-#  patreon: DeanAttali
-  youtube: channel/UCGk8ImCCwmgIgPApNOCs5Vw
-#  medium: yourname
-#  reddit: yourname
-#  linkedin: 
-#  xing: yourname
-#  stackoverflow: "3943160/daattali"
-#  snapchat: deanat78
-  instagram: tengiscc
-#  spotify: yourname
-#  telephone: +14159998888
-#  steam: deanat78
-#  twitch: yourname
-#  yelp: yourname
-#  telegram: yourname
-#  calendly: yourname
-#  mastodon: instance.url/@username
-  ORCID: 0000-0002-0999-6807
-  google-scholar: citations?&user=WA1blukAAAAJ
+      - layout: top-middle
+        title: "PedPy: Intuitive and Versatile Pedestrian Analysis"
+        link: https://pedpy.readthedocs.io/en/stable/
+        icon: fas fa-cube
+        link_text: Project Website
+        additional_links:
+          - title:  Github repository
+            icon: fab fa-github
+            url: https://github.com/pedestriandynamics/pedpy
+          - title:  Zenodo data
+            icon: fas fa-database
+            url: https://doi.org/10.5281/zenodo.7194992
+            
+        quote: >
+          PedPy: Pedestrian Trajectory Analyzer
+        description: | # this will include new lines to allow paragraphs
+          PedPy is an open-source, MIT-licensed Python library designed for pedestrian movement analysis. It offers a high-level interface to extract fundamental measurements from trajectory data, enabling direct computation of velocity, flow, and density. These can be combined to generate fundamental diagrams, while additional functionalities allow for the computation of density and velocity profiles.
 
-# If you want to show a link to an RSS in the footer, add the site description here.
-# If you don't want to show an RSS link, remove the following line.
-#rss-description: This website is a virtual proof that I'm awesome
+      - layout: top-middle
+        title: "Walk the Line: The role of gender and culture"
+        link: https://go.fzj.de/genderwalk
+        icon: fas fa-graduation-cap
+        link_text: Project Website
+        additional_links:
+          - title: Streamli app
+            icon: fas fa-desktop
+            url: https://go.fzj.de/genderwalk
+          - title:  Github repository
+            icon: fab fa-github
+            url: https://github.com/PedestrianDynamics/gender-experiments
+          - title:  Zenodo data
+            icon: fas fa-database
+            url: https://doi.org/10.34735/ped.2024.1
+          - title: Article
+            icon: fas fa-book-open
+            url: https://doi.org/10.1016/j.ssci.2024.106710
+            
+        quote: >
+          Streamlit application to visualize experiments performed in five countries.
+        description: | # this will include new lines to allow paragraphs
+          For the first time, we explore external validity and cross-cultural generalizability by conducting the same experiment in five different countries. Each study examines the impact of varying gender compositions on single-file pedestrian movement. Our findings reveal consistent effects of gender composition across all locations, with no significant deviations in the fundamental diagrams, particularly in the bounded regime.
 
-# --- General options --- #
+  - title: Experience # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        title: Research Centre Jülich
+        link: https://www.fz-juelich.de/en/ias/ias-7
+        sub_title: Civil Safety Research (IAS-7)
+        link_text: Division Head
+        caption: November 2018 - Present
+        quote: >
+          How can we understand the properties of a crowd and predict its dynamics in closed and open spaces?
+        description: | # this will include new lines to allow paragraphs
+            I tackle this question head-on, developing operational models and investigating route choice models in the field of software        engineering.
+            My research is centred around developing [JuPedSim](https://www.jupedsim.org), an open-source software for simulating pedestrian movement. 
+      - layout: left
+        title: University of Wuppertal
+        link: https://www.asim.uni-wuppertal.de/en/
+        sub_title: School of Architecture and Civil Engineering
+        link_text: Research associate
+        caption: 2010 - 2012
+        quote: >
+          Education and research
+        description: | # this will include new lines to allow paragraphs
+          As an employee and lecturer at Bergische Universität Wuppertal, I contributed to teaching through my lecture informatics, where civil engineering students were introduced to numerical engineering methods and programming.
+      - layout: left
+        title: Research Centre Jülich
+        link: https://www.fz-juelich.de/en/ias/jsc
+        sub_title: Jülich Supercomputing Centre
+        link_text: Phd and postdoc
+        caption: November 2008 - 2018
+        quote: >
+          Boundary effects and non=equilibrium states in pedestrian dynamics - experiments and modelling
+              
+        description: | # this will include new lines to allow paragraphs
+         I worked as a postdoc on several projects, including [kapaKrit](https://www.kapakrit.de), where we studied how to maximize evacuation capacity in the short term through structural, technical, and organizational measures, using Dortmund Central Station as a case study. To achieve this, we modeled and simulated the complex train station system to identify key parameters for capacity optimization.
+          
+  - title: Education
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        title: University of Wuppertal
+        caption: 2024
+        sub_title: Habilitation Computer-aided Traffic Simulation
+        quote: >
+          Elements for modeling pedestrian movement from theory to application and back
+        description: | # this will include new lines to allow paragraphs
+           In my habilitation defense I delivered two lectures.
+           In my first presentation, I introduced car-following models, their historical evolution, and stability characteristics, using NetLogo simulations to facilitate student understanding.
+                   My second lecture showcased a numerical reconstruction of the 1919 [Amritsar massacre](https://en.wikipedia.org/wiki/Jallianwala_Bagh_massacre#) using [JuPedSim](https://www.jupedsim.org), demonstrating how modeling techniques can provide new perspectives on historical events.
+        
+           This achievement grants me the authority to independently teach and supervise PhD students.
+      - layout: left     
+        title: University of Cologne
+        caption: 2008 - 2012
+        sub_title: PhD thesis
+        quote: > 
+          Validated force-based modeling of pedestrian dynamics  
+        description: |
+          Investigation of force-based modeling of pedestrian dynamics.
+          Focusing on the quantitative validation of mathematical models, this work addresses fundamental questions:
+          Is it possible to describe pedestrian dynamics solely using equations of motion derived from Newtonian dynamics?
+      - layout: left     
+        title: Technical University Hamburg-Harburg
+        caption: 2002 - 2008
+        sub_title: Diploma thesis
+        quote: > 
+          Systems of Ordinary Differential Equations for Describing Pedestrian Dynamics
+        description: |
+          The aim of this thesis is to examine the realism of models concerning pedestrian dynamics and to analyze challenges in their numerical computation.
+          The focus of these investigations is the centrifugal force model. Based on the findings, I propose approaches to improve the modeling accuracy, particularly with regard to numerical simulation.
 
-# Select which social network share links to show in posts
-share-links-active:
-  twitter: false
-  facebook: false
-  linkedin: false
-  vk: false
+  - title: Teachings at the University of Wuppertal
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+        title: Pedestrian Dynamics
+        caption: Winter semeser
+        sub_title: English
+        quote: >
+          How can we understand the properties of a crowd and predict its dynamics in closed and open spaces? 
+        description: |
+           This [lecture](https://www.asim.uni-wuppertal.de/en/teaching/pedestrian-simulation-csis/) addresses this question that weaves together three streams: development of operative models, investigation of route choice models, and software engineering. In this lecture, we aim at exploring several interrelated topics that fall under "mathematical modeling of pedestrian dynamics.    
+      - layout: left
+        title: Traffic Flow Modeling
+        caption: Winter semeser
+        sub_title: German
+        quote: >
+          Fundamentals of Modeling Car-Following Models with NetLogo
+        description: |
+          This [lecture](https://www.asim.uni-wuppertal.de/en/teaching/scientific-writing/) covers key concepts in traffic flow modeling, including modeling scales, model types, and traffic simulation tools.
+          It explores cellular automata and car-following models, tracing their historical development and advancements. Additionally, force-based models for pedestrian dynamics are introduced.
+          Hands-on exercises and demonstrations using [NetLogo](https://ccl.northwestern.edu/netlogo/) provide practical insights into simulation techniques.
+      - layout: left
+        title: Evacuation simulation
+        caption: Summer semeser
+        sub_title: German
+        quote: >
+          Evacuation simulations covering pedestrian movement models, software application
+        description: |
+          This [lecture](https://www.asim.uni-wuppertal.de/de/lehre/evakuierungssimulation/) provides an introduction to evacuation simulations.
+          It is designed for master's students in safety engineering and civil engineering.
+          The lecture consists of lectures and practical computer-based exercises, offering insights into models for pedestrian and crowd movement in buildings and other structures.
+          Additionally, students learn to use the software (JuPedSim and Pathfinder) and critically interpret simulation results.
+          At the end of the course, the acquired methods are applied in a project, such as simulating the evacuation of a building or analyzing pedestrian flows at an event.
 
-# How to display the link to your website in the footer
-# Remove this if you don't want a link in the footer
-#url-pretty: "MyWebsite.com"
+# - title: Tea
+#     layout: text
+#     content: | # this will include new lines to allow paragraphs
+#       Alongside my research activities, I teach at the university of wuppertal the following lectures:
+#       - [Pedestrian Dynamics](https://www.asim.uni-wuppertal.de/en/teaching/pedestrian-simulation-csis/)
+#       - [Theory of Traffic Flow](https://www.asim.uni-wuppertal.de/en/teaching/scientific-writing/)
+#       - [](https://www.asim.uni-wuppertal.de/de/lehre/evakuierungssimulation/)
+  
 
-# Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
-excerpt_length: 50
+# Footer
+footer_show_references: false
+# references_title: References on request (Override references text)
 
-# Whether or not to show an excerpt for every blog post in the feed page
-feed_show_excerpt: true
+# Build settings
+remote_theme: sproogen/resume-theme
 
-# Whether or not to show a list of tags below each post preview in the feed page
-feed_show_tags: true
-
-# The keywords to associate with your website, for SEO purposes
-keywords: "mohcine,chraibi,pedestrian,dynamics,simulation,evacuation,models,modeling"
-
-# --- Colours / background image --- #
-
-# Personalize the colours in your website. Colour values can be any valid CSS colour
-
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-
-# Alternatively, the navbar, footer, and page background can be set to an image
-# instead of colour
-
-#navbar-img: "/assets/img/bgimage.png"
-#footer-img: "/assets/img/bgimage.png"
-#page-img: "/assets/img/bgimage.png"
-
-# Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
-
-# For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
-
-# If you have common JavaScript files that should be included in every page, list them here
-#site-js:
-#  - "/assets/js/custom-script.js"
-
-# --- Web Analytics Section --- #
-
-# Fill in your Google Analytics gtag.js ID to track your website using gtag
-#gtag: ""
-
-# Fill in your Google Analytics ID to track your website using Google Analytics
-#google_analytics: ""
-
-# Google Tag Manager ID
-#gtm: ""
-
-# Matomo (aka Piwik) Web statistics
-# Uncomment the following section to enable Matomo. The opt-out parameter controls
-# whether or not you want to allow users to opt out of tracking.
-#matomo:
-#  site_id: "9"
-#  uri: "demo.wiki.pro"
-#  opt-out: true
-
-# --- Comments --- #
-
-# To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-#disqus: ""
-
-# To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
-#fb_comment_id: ""
-
-# To use Utterances comments: (0) uncomment the following section, (1) fill in
-# "repository" (make sure the repository is public), (2) Enable Issues in your repository,
-# (3) Install the Utterances app in your repository https://github.com/apps/utterances
-# See more details about the parameters below at https://utteranc.es/
-#utterances:
-#  repository: # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  issue-term: title   # Mapping between blog posts and GitHub issues
-#  theme: github-light # Utterances theme
-#  label: blog-comments # Label that will be assigned to GitHub Issues created by Utterances
-
-# To use Staticman comments, uncomment the following section. You may leave the reCaptcha
-# section commented if you aren't using reCaptcha for spam protection. 
-# Using Staticman requires advanced knowledge, please consult 
-# https://github.com/eduardoboucas/staticman/ and https://staticman.net/ for further 
-# instructions. For any support with staticman please direct questions to staticman and 
-# not to BeautifulJekyll.
-#staticman:
-#  repository : # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-#  endpoint   : # URL of your deployment, with a trailing slash eg. "https://<your-api>/v3/entry/github/"
-#  reCaptcha:   # (optional, set these parameters in `staticman.yml` as well) 
-#    siteKey  : # You need to apply for a site key on Google
-#    secret   : # Encrypt your password by going to https://<your-own-api>/v3/encrypt/<your-site-secret>
-
-# --- Misc --- #
-
-# Ruby Date Format to show dates of posts
-date_format: "%B %-d, %Y"
-
-# Facebook App ID
-#fb_app_id: ""
-
-# --- You don't need to touch anything below here (but you can if you want) --- #
-
-# Output options (more information on Jekyll's site)
-timezone: "America/Toronto"
-markdown: kramdown
-highlighter: rouge
-permalink: /:year-:month-:day-:title/
-paginate: 5
-
-kramdown:
-  input: GFM
-
-# Default YAML values (more information on Jekyll's site)
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
-      path: "" # any file that's not a post will be a "page" layout by default
-    values:
-      layout: "page"
-
-# Exclude these files from production site
-exclude:
-  - CHANGELOG.md
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - _posts/2020-12-31-books.md
-  - screenshot.png
-  - docs/
+sass:
+  sass_dir: _sass
+  style: compressed
 
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
-
+ - jekyll-seo-tag
