@@ -52,10 +52,18 @@ additional_links:
 # about_title: About Me
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I'm Mohcine, a senior researcher at Forschungszentrum Jülich focusing on pedestrian dynamics and crowd behavior. My research combines computational modeling with empirical validation to better understand how people move and interact in crowds.
-   I'm really interested in open source software for simulating, analysing and visualising pedestrian dynamics. I think this kind of software is a vital part of scientific practice.
+  Hi, I'm Mohcine, a senior researcher at Forschungszentrum Jülich focusing on pedestrian dynamics and crowd behavior. My research combines computational  modeling with empirical validation to better understand how people move and interact in crowds.
+  Want to see what I do in action? Check out this beautiful comic  
+  <i class="fas fa-paint-brush"></i> [Bustling through the physics of crowds](https://knowablemagazine.org/content/article/society/2024/using-physics-to-understand-behavior-of-human-crowd).
 
-   My research interests are: <mark>Data Analysis</mark>, <mark>Mathematical Modelling</mark>, <mark>Simulation</mark> and <mark>Research Software Development</mark>
+  I'm passionate about open source software for simulating, analyzing and visualizing pedestrian dynamics, which I believe is fundamental to good scientific practice.
+  
+  To help grow our research community, I maintain a website that collects useful information and news about pedestrian dynamics at <i class="fas fa-globe"></i> [pedestriandynamics.org](https://pedestriandynamics.org/) and a GitHub-organisation at <i class="fab fa-github"></i> [github.com/PedestrianDynamics](https://github.com/PedestrianDynamics/).
+
+  ------
+  
+  Research interests:
+  <mark>Mathematical Modelling</mark> • <mark>Simulation</mark> • <mark>Data Analysis</mark> • <mark>Research Software Development</mark>
 
 
 content:
