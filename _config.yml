@@ -54,7 +54,7 @@ about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Mohcine, a senior researcher at Forschungszentrum Jülich focusing on pedestrian dynamics and crowd behavior. My research combines computational  modeling with empirical validation to better understand how people move and interact in crowds.
   Want to see what I do in action? Check out this beautiful comic  
-  <i class="fas fa-paint-brush"></i> [Bustling through the physics of crowds](https://knowablemagazine.org/content/article/society/2024/using-physics-to-understand-behavior-of-human-crowd).
+  <i class="fas fa-paint-brush"></i> [Bustling through the physics of crowds](https://knowablemagazine.org/content/article/society/2024/using-physics-to-understand-behavior-of-human-crowds).
 
   I'm passionate about open source software for simulating, analyzing and visualizing pedestrian dynamics, which I believe is fundamental to good scientific practice.
   
@@ -63,8 +63,7 @@ about_content: | # this will include new lines to allow paragraphs
   ------
   
   Research interests:
-  <mark>Mathematical Modelling</mark> • <mark>Simulation</mark> • <mark>Data Analysis</mark> • <mark>Research Software Development</mark>
-
+  <mark>Mathematical Modelling</mark> • <mark>Simulation</mark> • <mark>Data Analysis</mark> • <mark>Research Software Development</mark>  
 
 content:
   - title: Projects # Title for the section
@@ -88,7 +87,7 @@ content:
             
         quote: >
           The French-German project MADRAS
-        description: | # this will include new lines to allow paragraphs
+        description: | # this will include new lines to allow paragraphs          
           The goal of this joint-project is to develop models to predict and understand dense crowd movements of 2-8 people per square meter. The research combines neural networks with physics-based modeling to improve upon current models that struggle with high-density scenarios. The project integrates these approaches into an online platform for real-time visualization and comparison with actual crowd data. Using the Festival of Lights as a case study.
       - layout: top-middle
         title: "JuPedSim: Flexible and Expressive Pedestrian Simulation"
