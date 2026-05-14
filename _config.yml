@@ -9,7 +9,7 @@ favicon: images/favicon.ico
 version: 2
 
 # Personal info
-name: Mohcine Chraibi
+name: Dr. Mohcine Chraibi
 title: Head of the division Pedestrian Dynamics - Modeling at Civil Safety Research
 email: m.chraibi@fz-juelich.de
 website: https://www.fz-juelich.de/profile/chraibi_m
@@ -29,13 +29,16 @@ linkedin_username: mohcine-chraibi
 # pinterest_username: jekyll
 youtube_username: "@pedestrianandfiredynamics7738"
 # googleplus_username: +jekyll
-orcid_username: 0000-0002-0999-6807
+# orcid_username: 0000-0002-0999-6807
 
 # Additional icon links
 additional_links:
 - title: Google Scholar
   icon: fas fa-graduation-cap
   url: https://scholar.google.com/citations?user=WA1blukAAAAJ
+- title: Consulting
+  icon: fas fa-briefcase
+  url: /consulting/
 # - title: jupedsim
 #   icon: fas fa-globe
 #   url: https://www.jupedsim.org
@@ -51,7 +54,7 @@ additional_links:
 
 # About Section
 # about_title: About Me
-about_profile_image: images/mohcine_ghibli.png
+about_profile_image: images/profile_ibit26.png
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Mohcine, a senior researcher at Forschungszentrum Jülich focusing on pedestrian dynamics and crowd behavior. My research combines computational  modeling with empirical validation to better understand how people move and interact in crowds.
   Want to see what I do in action? Check out this beautiful comic  
