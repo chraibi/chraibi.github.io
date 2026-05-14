@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{%- include head.html -%}
+
+<body class="{% if site.darkmode == true and site.darkmode != 'never' %}dark{% endif %}">
+
+  {%- include header.html -%}
+
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <article class="post" style="max-width: 760px; margin: 2rem auto; padding: 0 1rem;">
+        {%- if page.title -%}
+          <header class="post-header" style="margin-bottom: 1.5rem;">
+            <h1 class="post-title" style="margin: 0;">{{ page.title }}</h1>
+          </header>
+        {%- endif -%}
+        <div class="post-content">
+          {{ content }}
+        </div>
+      </article>
+    </div>
+  </main>
+
+  {%- include footer.html -%}
+  {% if site.darkmode == false %}
+    <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
+  {% endif %}
+
+  <style>
+    .consulting p, .consulting li, .consulting dd { font-size: 1.55rem; line-height: 1.6; }
+    .consulting .lead { font-size: 1.75rem; line-height: 1.5; margin-top: 0; }
+    .consulting h2 { margin-top: 2rem; margin-bottom: .6rem; font-size: 2.4rem; font-weight: 600; }
+    .consulting dl { margin: 0; }
+    .consulting dt { font-weight: 600; margin-top: 1.2rem; font-size: 1.55rem; }
+    .consulting dd { margin: .2rem 0 0 0; color: #444; }
+    .consulting ul { padding-left: 1.2rem; }
+    .consulting .disclaimer { margin-top: 2rem; font-size: 1rem; color: #666; border-top: 1px solid #eee; padding-top: 1rem; }
+  </style>
+
+</body>
+
+</html>
