@@ -2,3 +2,6 @@ _site/
 _site/*
 _drafts/
 .gstack/
+
+# Global ~/.gitignore ignores *.png; site images live here and must be tracked
+!images/*.png
