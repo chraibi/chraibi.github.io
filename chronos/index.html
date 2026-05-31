@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronos — Work Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=Karla:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F5F1EA;
+      --bg-card: #FFFDF9;
+      --bg-hover: #FAF7F2;
+      --text: #1A1815;
+      --text-muted: #8C8580;
+      --text-light: #B5AFA8;
+      --accent: #BF4A30;
+      --accent-light: #E8714F;
+      --teal: #2E6B62;
+      --gold: #C99A2E;
+      --purple: #6B4C8A;
+      --steel: #4A7B8C;
+      --border: #E2DDD5;
+      --shadow: 0 1px 3px rgba(26,24,21,0.04), 0 4px 12px rgba(26,24,21,0.03);
+      --shadow-hover: 0 2px 8px rgba(26,24,21,0.06), 0 8px 24px rgba(26,24,21,0.05);
+      --radius: 10px;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Karla', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+      --heat-0: #EDEAE4;
+      --heat-1: #FCEBD0;
+      --heat-2: #F0C870;
+      --heat-3: #D98030;
+      --heat-4: #BF4A30;
+      --heat-5: #7A2E1E;
+    }
+
+    html { font-size: 15px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    .dashboard {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 2rem 2.5rem 4rem;
+    }
+
+    /* ── Header ────────────────────────────────── */
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-left h1 {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .header-left p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 0.35rem;
+      font-weight: 500;
+    }
+    .header-controls {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .filter-pill {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: var(--bg-card);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #FFF5F2;
+    }
+    .filter-pill select {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      border: none;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      padding-right: 0.2rem;
+    }
+    .btn-refresh {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .btn-refresh:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── Cards ─────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ── KPI Row ───────────────────────────────── */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .kpi-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      border-radius: 3px 0 0 3px;
+    }
+    .kpi-card:nth-child(1)::before { background: var(--accent); }
+    .kpi-card:nth-child(2)::before { background: var(--teal); }
+    .kpi-card:nth-child(3)::before { background: var(--gold); }
+    .kpi-card:nth-child(4)::before { background: var(--purple); }
+    .kpi-card:nth-child(5)::before { background: var(--steel); }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .kpi-value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+    }
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.35rem;
+      font-family: var(--font-mono);
+      font-weight: 400;
+    }
+
+    /* ── Heatmap ───────────────────────────────── */
+    .heatmap-section { margin-bottom: 2rem; }
+    .heatmap-section .card { padding: 1.5rem 1.5rem 1rem; }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .heatmap-wrapper {
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .heatmap-container {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .heatmap-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-right: 6px;
+      padding-top: 22px;
+    }
+    .heatmap-labels span {
+      font-size: 0.6rem;
+      color: var(--text-light);
+      height: 13px;
+      line-height: 13px;
+      font-family: var(--font-mono);
+    }
+    .heatmap-grid {
+      display: flex;
+      gap: 3px;
+    }
+    .heatmap-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .heatmap-month-label {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      height: 16px;
+      line-height: 16px;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .heatmap-cell {
+      width: 13px;
+      height: 13px;
+      border-radius: 2px;
+      background: var(--heat-0);
+      cursor: pointer;
+      transition: outline 0.1s;
+    }
+    .heatmap-cell:hover {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+    .heatmap-cell[data-level="1"] { background: var(--heat-1); }
+    .heatmap-cell[data-level="2"] { background: var(--heat-2); }
+    .heatmap-cell[data-level="3"] { background: var(--heat-3); }
+    .heatmap-cell[data-level="4"] { background: var(--heat-4); }
+    .heatmap-cell[data-level="5"] { background: var(--heat-5); }
+
+    .heatmap-legend {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 0.75rem;
+      justify-content: flex-end;
+    }
+    .heatmap-legend span {
+      font-size: 0.65rem;
+      color: var(--text-light);
+      font-family: var(--font-mono);
+    }
+    .heatmap-legend-cell {
+      width: 13px;
+      height: 13px;
+      border-radius: 2px;
+    }
+
+    /* ── Tooltip ────────────────────────────────── */
+    .tooltip {
+      position: fixed;
+      padding: 0.45rem 0.7rem;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      border-radius: 6px;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+    .tooltip.visible { opacity: 1; }
+
+    /* ── Chart Rows ────────────────────────────── */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .chart-card { height: 380px; }
+    .chart-card canvas { width: 100% !important; height: 100% !important; max-height: 320px; }
+
+    /* ── Table ─────────────────────────────────── */
+    .table-section { margin-top: 1rem; }
+    .table-section .card { padding: 1.5rem; }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .data-table th {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .data-table td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .data-table tr:hover td { background: var(--bg-hover); }
+    .data-table .mono {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+    .data-table th.sortable {
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.15s;
+    }
+    .data-table th.sortable:hover { color: var(--accent); }
+    .data-table th.sortable .sort-arrow { font-size: 0.6rem; opacity: 0.3; }
+    .data-table th.sortable.asc .sort-arrow::after { content: ' ▲'; opacity: 1; }
+    .data-table th.sortable.desc .sort-arrow::after { content: ' ▼'; opacity: 1; }
+    .data-table .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+      background: #F0ECE4;
+      color: var(--text-muted);
+      margin: 0.1rem 0.15rem;
+    }
+    .data-table .tag-link {
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .data-table .tag-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .data-table .duration-bar {
+      display: inline-block;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--accent);
+      opacity: 0.6;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* ── Wellbeing Section ──────────────────────── */
+    .wellbeing-section { margin-bottom: 2rem; }
+    .wellbeing-section > .section-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .wellbeing-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .gauge-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+    }
+    .gauge-svg { width: 120px; height: 120px; transform: rotate(-90deg); }
+    .gauge-bg { fill: none; stroke: var(--border); stroke-width: 8; }
+    .gauge-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease, stroke 0.5s; }
+    .gauge-text {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
+      transform: rotate(90deg);
+      transform-origin: center;
+    }
+    .gauge-label-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+    }
+    .indicators-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .indicator-card { padding: 1.1rem 1.2rem; }
+    .indicator-card .ind-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .indicator-card .ind-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .indicator-card .ind-bar {
+      height: 5px;
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .indicator-card .ind-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s ease;
+    }
+    .indicator-card .ind-detail {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-top: 0.35rem;
+      font-family: var(--font-mono);
+    }
+    .ind-status {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .status-green { background: #3D8B37; }
+    .status-yellow { background: #C99A2E; }
+    .status-red { background: #BF4A30; }
+
+    .weekly-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .missing-days-card { padding: 1.5rem; }
+    .missing-month-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      max-width: 320px;
+    }
+    .missing-month-grid .day-header {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-align: center;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+    .missing-day {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      cursor: default;
+      transition: transform 0.15s;
+    }
+    .missing-day:hover { transform: scale(1.15); }
+    .missing-day.worked { background: rgba(46,107,98,0.15); color: var(--teal); }
+    .missing-day.missed { background: rgba(191,74,48,0.12); color: var(--accent); }
+    .missing-day.weekend-worked { background: rgba(201,154,46,0.2); color: var(--gold); }
+    .missing-day.weekend-off { background: var(--heat-0); color: var(--text-light); }
+    .missing-day.future { background: transparent; color: var(--text-light); opacity: 0.3; }
+    .missing-day.empty { background: transparent; }
+    .missing-legend {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .missing-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .missing-legend-swatch {
+      width: 12px; height: 12px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 1024px) {
+      .wellbeing-grid { grid-template-columns: 1fr; }
+      .indicators-grid { grid-template-columns: repeat(2, 1fr); }
+      .weekly-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── Animations ────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      animation: fadeUp 0.5s ease-out both;
+    }
+    .delay-1 { animation-delay: 0.05s; }
+    .delay-2 { animation-delay: 0.1s; }
+    .delay-3 { animation-delay: 0.15s; }
+    .delay-4 { animation-delay: 0.2s; }
+    .delay-5 { animation-delay: 0.25s; }
+    .delay-6 { animation-delay: 0.3s; }
+    .delay-7 { animation-delay: 0.35s; }
+    .delay-8 { animation-delay: 0.4s; }
+
+    /* ── Loading ───────────────────────────────── */
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: opacity 0.4s ease;
+    }
+    .loading-overlay.hidden { opacity: 0; pointer-events: none; display: none; }
+    .loading-spinner {
+      width: 32px; height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Scrollbar ─────────────────────────────── */
+    ::-webkit-scrollbar { height: 6px; width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-light); }
+
+    /* ── Responsive ────────────────────────────── */
+    @media (max-width: 1024px) {
+      .kpi-row { grid-template-columns: repeat(3, 1fr); }
+      .charts-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .dashboard { padding: 1rem; }
+      .kpi-row { grid-template-columns: 1fr 1fr; }
+      .header { flex-direction: column; gap: 1rem; }
+      .header-left h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-overlay" id="loading">
+    <div class="loading-spinner"></div>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+
+  <div class="dashboard" id="app">
+    <!-- Header -->
+    <header class="header animate-in">
+      <div class="header-left">
+        <h1>Chronos</h1>
+        <p>Work activity dashboard</p>
+      </div>
+      <div class="header-controls">
+        <div class="filter-pill">
+          <select id="yearFilter"></select>
+        </div>
+        <button class="btn-refresh" id="btnRefresh" title="Re-parse org files">↻ Refresh</button>
+      </div>
+    </header>
+
+    <!-- KPI Cards -->
+    <section class="kpi-row">
+      <div class="card kpi-card animate-in delay-1">
+        <div class="kpi-label">Today</div>
+        <div class="kpi-value" id="kpiToday">—</div>
+        <div class="kpi-sub" id="kpiTodaySub"></div>
+      </div>
+      <div class="card kpi-card animate-in delay-2">
+        <div class="kpi-label">This Week</div>
+        <div class="kpi-value" id="kpiWeek">—</div>
+        <div class="kpi-sub" id="kpiWeekSub"></div>
+      </div>
+      <div class="card kpi-card animate-in delay-3">
+        <div class="kpi-label">This Month</div>
+        <div class="kpi-value" id="kpiMonth">—</div>
+        <div class="kpi-sub" id="kpiMonthSub"></div>
+      </div>
+      <div class="card kpi-card animate-in delay-4">
+        <div class="kpi-label">Avg / Day</div>
+        <div class="kpi-value" id="kpiAvg">—</div>
+        <div class="kpi-sub" id="kpiAvgSub"></div>
+      </div>
+      <div class="card kpi-card animate-in delay-5">
+        <div class="kpi-label">Active Days</div>
+        <div class="kpi-value" id="kpiDays">—</div>
+        <div class="kpi-sub" id="kpiDaysSub"></div>
+      </div>
+    </section>
+
+    <!-- Heatmap -->
+    <section class="heatmap-section animate-in delay-5">
+      <div class="card">
+        <div class="section-title">Activity over time</div>
+        <div class="heatmap-wrapper">
+          <div class="heatmap-container">
+            <div class="heatmap-labels">
+              <span>&nbsp;</span><span>Mon</span><span>&nbsp;</span><span>Wed</span><span>&nbsp;</span><span>Fri</span><span>&nbsp;</span>
+            </div>
+            <div class="heatmap-grid" id="heatmapGrid"></div>
+          </div>
+        </div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <div class="heatmap-legend-cell" style="background:var(--heat-0)"></div>
+          <div class="heatmap-legend-cell" style="background:var(--heat-1)"></div>
+          <div class="heatmap-legend-cell" style="background:var(--heat-2)"></div>
+          <div class="heatmap-legend-cell" style="background:var(--heat-3)"></div>
+          <div class="heatmap-legend-cell" style="background:var(--heat-4)"></div>
+          <div class="heatmap-legend-cell" style="background:var(--heat-5)"></div>
+          <span>More</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wellbeing Pulse -->
+    <section class="wellbeing-section animate-in delay-5">
+      <div class="section-title">Wellbeing pulse</div>
+      <div class="wellbeing-grid">
+        <!-- Health Gauge -->
+        <div class="card gauge-card">
+          <svg class="gauge-svg" viewBox="0 0 120 120">
+            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
+            <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
+            <text class="gauge-text" id="gaugeValue" x="60" y="60">—</text>
+          </svg>
+          <div class="gauge-label-text">Health Score</div>
+        </div>
+        <!-- Indicator Cards -->
+        <div class="indicators-grid">
+          <div class="card indicator-card">
+            <div class="ind-label">Weekly Hours</div>
+            <div class="ind-value" id="indWeeklyHours">—</div>
+            <div class="ind-bar"><div class="ind-bar-fill" id="indWeeklyBar"></div></div>
+            <div class="ind-detail" id="indWeeklyDetail"></div>
+          </div>
+          <div class="card indicator-card">
+            <div class="ind-label">Weekend Work</div>
+            <div class="ind-value" id="indWeekend">—</div>
+            <div class="ind-bar"><div class="ind-bar-fill" id="indWeekendBar"></div></div>
+            <div class="ind-detail" id="indWeekendDetail"></div>
+          </div>
+          <div class="card indicator-card">
+            <div class="ind-label">After Hours</div>
+            <div class="ind-value" id="indAfterHours">—</div>
+            <div class="ind-bar"><div class="ind-bar-fill" id="indAfterBar"></div></div>
+            <div class="ind-detail" id="indAfterDetail"></div>
+          </div>
+          <div class="card indicator-card">
+            <div class="ind-label">Longest Streak</div>
+            <div class="ind-value" id="indStreak">—</div>
+            <div class="ind-bar"><div class="ind-bar-fill" id="indStreakBar"></div></div>
+            <div class="ind-detail" id="indStreakDetail"></div>
+          </div>
+          <div class="card indicator-card">
+            <div class="ind-label">Rest Days / Month</div>
+            <div class="ind-value" id="indRest">—</div>
+            <div class="ind-bar"><div class="ind-bar-fill" id="indRestBar"></div></div>
+            <div class="ind-detail" id="indRestDetail"></div>
+          </div>
+          <div class="card indicator-card">
+            <div class="ind-label">Schedule Regularity</div>
+            <div class="ind-value" id="indRegularity">—</div>
+            <div class="ind-bar"><div class="ind-bar-fill" id="indRegularityBar"></div></div>
+            <div class="ind-detail" id="indRegularityDetail"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weekly Hours + Missing Days -->
+    <section class="weekly-row">
+      <div class="card chart-card animate-in delay-6">
+        <div class="section-title">Weekly hours trend</div>
+        <canvas id="chartWeekly"></canvas>
+      </div>
+      <div class="card missing-days-card animate-in delay-6">
+        <div class="section-title" id="missingTitle">This month</div>
+        <div class="missing-month-grid" id="missingGrid"></div>
+        <div class="missing-legend">
+          <div class="missing-legend-item"><div class="missing-legend-swatch" style="background:rgba(46,107,98,0.15)"></div> Worked</div>
+          <div class="missing-legend-item"><div class="missing-legend-swatch" style="background:rgba(191,74,48,0.12)"></div> Missed (weekday)</div>
+          <div class="missing-legend-item"><div class="missing-legend-swatch" style="background:rgba(201,154,46,0.2)"></div> Weekend worked</div>
+          <div class="missing-legend-item"><div class="missing-legend-swatch" style="background:var(--heat-0)"></div> Weekend off</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Row 1 -->
+    <section class="charts-row">
+      <div class="card chart-card animate-in delay-6">
+        <div class="section-title">Daily hours</div>
+        <canvas id="chartDaily"></canvas>
+      </div>
+      <div class="card chart-card animate-in delay-7">
+        <div class="section-title">Monthly totals</div>
+        <canvas id="chartMonthly"></canvas>
+      </div>
+    </section>
+
+    <!-- Charts Row 2 -->
+    <section class="charts-row">
+      <div class="card chart-card animate-in delay-7">
+        <div class="section-title">Work window</div>
+        <canvas id="chartSchedule"></canvas>
+      </div>
+      <div class="card chart-card animate-in delay-8">
+        <div class="section-title">Top categories</div>
+        <canvas id="chartCategories"></canvas>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="table-section animate-in delay-8">
+      <div class="card">
+        <div class="section-title">Recent activity</div>
+        <div style="overflow-x: auto;">
+          <table class="data-table" id="activityTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-sort="date">Date <span class="sort-arrow"></span></th>
+                <th class="sortable" data-sort="hours">Hours <span class="sort-arrow"></span></th>
+                <th class="sortable" data-sort="taskCount">Tasks <span class="sort-arrow"></span></th>
+                <th class="sortable" data-sort="firstIn">Clock In <span class="sort-arrow"></span></th>
+                <th class="sortable" data-sort="lastOut">Clock Out <span class="sort-arrow"></span></th>
+                <th>Activities</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script>
+    /* ── Globals ──────────────────────────────── */
+    let RAW = [];
+    let FILTERED = [];
+    let charts = {};
+
+    /* ── Helpers ──────────────────────────────── */
+    function fmtHours(h) {
+      const hrs = Math.floor(h);
+      const mins = Math.round((h - hrs) * 60);
+      return hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
+    }
+
+    function fmtTime(decimalHour) {
+      const h = Math.floor(decimalHour);
+      const m = Math.round((decimalHour - h) * 60);
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+    }
+
+    function isoWeek(d) {
+      const date = new Date(d);
+      const day = (date.getDay() + 6) % 7;
+      date.setDate(date.getDate() - day + 3);
+      const firstThursday = new Date(date.getFullYear(), 0, 4);
+      const diff = date - firstThursday;
+      return Math.round(diff / 86400000 / 7) + 1;
+    }
+
+    function getMonday(d) {
+      const date = new Date(d);
+      const day = date.getDay();
+      const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+      return new Date(date.setDate(diff));
+    }
+
+    function sameWeek(a, b) {
+      const ma = getMonday(a), mb = getMonday(b);
+      return ma.toDateString() === mb.toDateString();
+    }
+
+    function localDateStr(d) {
+      const date = d instanceof Date ? d : new Date(d);
+      return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+    }
+
+    function heatLevel(hours) {
+      if (hours <= 0) return 0;
+      if (hours <= 2) return 1;
+      if (hours <= 4) return 2;
+      if (hours <= 6) return 3;
+      if (hours <= 8) return 4;
+      return 5;
+    }
+
+    /* ── Tooltip ──────────────────────────────── */
+    const tooltip = document.getElementById('tooltip');
+    function showTooltip(e, text) {
+      tooltip.textContent = text;
+      tooltip.classList.add('visible');
+      tooltip.style.left = e.clientX + 12 + 'px';
+      tooltip.style.top = e.clientY - 32 + 'px';
+    }
+    function hideTooltip() { tooltip.classList.remove('visible'); }
+
+    /* ── Chart defaults ──────────────────────── */
+    Chart.defaults.font.family = "'Karla', sans-serif";
+    Chart.defaults.font.size = 12;
+    Chart.defaults.color = '#8C8580';
+    Chart.defaults.plugins.legend.display = false;
+    Chart.defaults.plugins.tooltip.backgroundColor = '#1A1815';
+    Chart.defaults.plugins.tooltip.cornerRadius = 6;
+    Chart.defaults.plugins.tooltip.titleFont = { family: "'Karla', sans-serif", weight: '600' };
+    Chart.defaults.plugins.tooltip.bodyFont = { family: "'JetBrains Mono', monospace", size: 11 };
+    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.scale.grid = { color: '#E8E4DF', lineWidth: 0.5 };
+    Chart.defaults.scale.border = { display: false };
+
+    /* ── Aggregate by day ────────────────────── */
+    function aggregateByDay(entries) {
+      const map = {};
+      for (const e of entries) {
+        if (!map[e.date]) {
+          map[e.date] = { date: e.date, hours: 0, tasks: new Map(), starts: [], ends: [], tags: new Set() };
+        }
+        const d = map[e.date];
+        d.hours += e.duration_hours;
+        if (!d.tasks.has(e.task)) d.tasks.set(e.task, e.file || '');
+        d.starts.push(e.start_hour);
+        d.ends.push(e.end_hour);
+        for (const t of (e.tags || [])) d.tags.add(t);
+      }
+      return Object.values(map)
+        .map(d => ({
+          date: d.date,
+          hours: Math.round(d.hours * 100) / 100,
+          taskCount: d.tasks.size,
+          taskNames: [...d.tasks.keys()],
+          taskFiles: Object.fromEntries(d.tasks),
+          firstIn: Math.min(...d.starts),
+          lastOut: Math.max(...d.ends),
+          tags: [...d.tags],
+        }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    /* ── Aggregate by month ──────────────────── */
+    function aggregateByMonth(days) {
+      const map = {};
+      for (const d of days) {
+        const key = d.date.slice(0, 7);
+        if (!map[key]) map[key] = { month: key, hours: 0, days: 0 };
+        map[key].hours += d.hours;
+        map[key].days += 1;
+      }
+      return Object.values(map).sort((a, b) => a.month.localeCompare(b.month));
+    }
+
+    /* ── Aggregate by category ───────────────── */
+    function aggregateByCategory(entries) {
+      const map = {};
+      const displayNames = {}; // keep the most common casing
+      const caseCounts = {};
+      for (const e of entries) {
+        const key = e.task.toLowerCase().trim();
+        if (!key) continue;
+        if (!map[key]) { map[key] = 0; caseCounts[key] = {}; }
+        map[key] += e.duration_hours;
+        caseCounts[key][e.task] = (caseCounts[key][e.task] || 0) + 1;
+      }
+      // Pick the most frequent casing as display name
+      for (const key in caseCounts) {
+        const variants = caseCounts[key];
+        displayNames[key] = Object.entries(variants).sort((a, b) => b[1] - a[1])[0][0];
+      }
+      return Object.entries(map)
+        .map(([key, hours]) => ({ name: displayNames[key], hours: Math.round(hours * 100) / 100 }))
+        .sort((a, b) => b.hours - a.hours);
+    }
+
+    /* ── Render KPIs ─────────────────────────── */
+    function renderKPIs(days, allDays) {
+      const today = localDateStr(new Date());
+      const todayData = days.find(d => d.date === today);
+      const todayHours = todayData ? todayData.hours : 0;
+
+      // Last working day if no data today
+      const lastDay = days[days.length - 1];
+      if (todayData) {
+        document.getElementById('kpiToday').textContent = fmtHours(todayHours);
+        document.getElementById('kpiTodaySub').textContent = `${todayData.taskCount} tasks`;
+      } else if (lastDay) {
+        document.getElementById('kpiToday').textContent = fmtHours(lastDay.hours);
+        document.getElementById('kpiTodaySub').textContent = lastDay.date;
+      }
+
+      // This week
+      const now = new Date();
+      const weekDays = days.filter(d => sameWeek(new Date(d.date), now));
+      const weekHours = weekDays.reduce((s, d) => s + d.hours, 0);
+      document.getElementById('kpiWeek').textContent = fmtHours(weekHours);
+      document.getElementById('kpiWeekSub').textContent = `${weekDays.length} days`;
+
+      // This month
+      const thisMonth = today.slice(0, 7);
+      const monthDays = days.filter(d => d.date.startsWith(thisMonth));
+      const monthHours = monthDays.reduce((s, d) => s + d.hours, 0);
+      document.getElementById('kpiMonth').textContent = fmtHours(monthHours);
+      document.getElementById('kpiMonthSub').textContent = `${monthDays.length} days`;
+
+      // Average (use all data, not just filtered)
+      const totalHours = allDays.reduce((s, d) => s + d.hours, 0);
+      const avg = allDays.length ? totalHours / allDays.length : 0;
+      document.getElementById('kpiAvg').textContent = fmtHours(avg);
+      document.getElementById('kpiAvgSub').textContent = `σ ${fmtHours(std(allDays.map(d => d.hours)))}`;
+
+      // Active days
+      document.getElementById('kpiDays').textContent = days.length;
+      const firstDate = days[0]?.date || '—';
+      const lastDate = days[days.length - 1]?.date || '—';
+      document.getElementById('kpiDaysSub').textContent = `${firstDate.slice(5)} → ${lastDate.slice(5)}`;
+    }
+
+    function std(arr) {
+      if (arr.length < 2) return 0;
+      const mean = arr.reduce((s, v) => s + v, 0) / arr.length;
+      const variance = arr.reduce((s, v) => s + (v - mean) ** 2, 0) / arr.length;
+      return Math.sqrt(variance);
+    }
+
+    /* ── Render Heatmap ──────────────────────── */
+    function renderHeatmap(days) {
+      const grid = document.getElementById('heatmapGrid');
+      grid.innerHTML = '';
+
+      const dayMap = {};
+      for (const d of days) dayMap[d.date] = d.hours;
+
+      // Build 52-week grid ending at today
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const startDate = new Date(today);
+      startDate.setDate(startDate.getDate() - 52 * 7 - today.getDay() + 1);
+
+      let currentDate = new Date(startDate);
+      let currentWeek = [];
+      let weeks = [];
+      let monthLabels = [];
+      let lastMonth = -1;
+
+      while (currentDate <= today) {
+        const dayOfWeek = (currentDate.getDay() + 6) % 7; // 0=Mon
+        if (dayOfWeek === 0 && currentWeek.length > 0) {
+          weeks.push(currentWeek);
+          currentWeek = [];
+        }
+        const dateStr = localDateStr(currentDate);
+        const month = currentDate.getMonth();
+        if (month !== lastMonth) {
+          monthLabels.push({ weekIdx: weeks.length, month: currentDate.toLocaleDateString('en', { month: 'short' }) });
+          lastMonth = month;
+        }
+        currentWeek.push({ date: dateStr, hours: dayMap[dateStr] || 0, dow: dayOfWeek });
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+      if (currentWeek.length) weeks.push(currentWeek);
+
+      // Render
+      let labelIdx = 0;
+      weeks.forEach((week, wi) => {
+        const col = document.createElement('div');
+        col.className = 'heatmap-col';
+
+        // Month label
+        const label = document.createElement('div');
+        label.className = 'heatmap-month-label';
+        if (labelIdx < monthLabels.length && monthLabels[labelIdx].weekIdx === wi) {
+          label.textContent = monthLabels[labelIdx].month;
+          labelIdx++;
+        } else {
+          label.innerHTML = '&nbsp;';
+        }
+        col.appendChild(label);
+
+        // Pad start of first week
+        if (wi === 0) {
+          for (let i = 0; i < week[0].dow; i++) {
+            const empty = document.createElement('div');
+            empty.className = 'heatmap-cell';
+            empty.style.visibility = 'hidden';
+            col.appendChild(empty);
+          }
+        }
+
+        for (const day of week) {
+          const cell = document.createElement('div');
+          cell.className = 'heatmap-cell';
+          cell.dataset.level = heatLevel(day.hours);
+          cell.addEventListener('mouseenter', e => showTooltip(e, `${day.date}: ${fmtHours(day.hours)}`));
+          cell.addEventListener('mouseleave', hideTooltip);
+          col.appendChild(cell);
+        }
+        grid.appendChild(col);
+      });
+    }
+
+    /* ── Render Charts ───────────────────────── */
+    function destroyChart(key) {
+      if (charts[key]) { charts[key].destroy(); delete charts[key]; }
+    }
+
+    function renderDailyChart(days) {
+      destroyChart('daily');
+      const ctx = document.getElementById('chartDaily').getContext('2d');
+
+      // Moving average (7-day)
+      const ma = days.map((d, i) => {
+        const window = days.slice(Math.max(0, i - 6), i + 1);
+        return { x: d.date, y: Math.round(window.reduce((s, w) => s + w.hours, 0) / window.length * 100) / 100 };
+      });
+
+      charts.daily = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: days.map(d => d.date),
+          datasets: [
+            {
+              type: 'bar',
+              label: 'Hours',
+              data: days.map(d => d.hours),
+              backgroundColor: 'rgba(191,74,48,0.25)',
+              borderColor: 'rgba(191,74,48,0.6)',
+              borderWidth: 1,
+              borderRadius: 3,
+              barPercentage: 0.8,
+            },
+            {
+              type: 'line',
+              label: '7-day avg',
+              data: ma,
+              borderColor: 'rgba(46,107,98,0.8)',
+              borderWidth: 2,
+              pointRadius: 0,
+              tension: 0.4,
+              parsing: { xAxisKey: 'x', yAxisKey: 'y' },
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            x: {
+              type: 'time',
+              time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
+              ticks: { maxTicksLimit: 12, font: { family: "'JetBrains Mono', monospace", size: 10 } },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { callback: v => v + 'h', font: { family: "'JetBrains Mono', monospace", size: 10 } },
+              grid: { drawTicks: false },
+            }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                title: items => items[0]?.label?.split(',').slice(0, 2).join(',') || '',
+                label: item => ` ${item.dataset.label}: ${fmtHours(item.parsed.y)}`,
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function renderMonthlyChart(months) {
+      destroyChart('monthly');
+      const ctx = document.getElementById('chartMonthly').getContext('2d');
+
+      const colors = months.map((_, i) => {
+        const palette = ['#BF4A30', '#D98030', '#C99A2E', '#2E6B62', '#4A7B8C', '#6B4C8A'];
+        return palette[i % palette.length];
+      });
+
+      charts.monthly = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: months.map(m => m.month),
+          datasets: [{
+            label: 'Total hours',
+            data: months.map(m => Math.round(m.hours * 10) / 10),
+            backgroundColor: colors.map(c => c + '33'),
+            borderColor: colors.map(c => c + 'AA'),
+            borderWidth: 1.5,
+            borderRadius: 5,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              ticks: {
+                font: { family: "'JetBrains Mono', monospace", size: 10 },
+                callback: function(val) {
+                  const label = this.getLabelForValue(val);
+                  return label.slice(2); // "24-01" style
+                }
+              },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { callback: v => v + 'h', font: { family: "'JetBrains Mono', monospace", size: 10 } },
+            }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: item => {
+                  const m = months[item.dataIndex];
+                  return ` ${fmtHours(m.hours)} across ${m.days} days`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function renderScheduleChart(days) {
+      destroyChart('schedule');
+      const ctx = document.getElementById('chartSchedule').getContext('2d');
+
+      charts.schedule = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Clock in',
+              data: days.map(d => ({ x: d.date, y: d.firstIn })),
+              backgroundColor: 'rgba(46,107,98,0.5)',
+              borderColor: 'rgba(46,107,98,0.7)',
+              pointRadius: 3,
+              pointHoverRadius: 5,
+            },
+            {
+              label: 'Clock out',
+              data: days.map(d => ({ x: d.date, y: d.lastOut })),
+              backgroundColor: 'rgba(191,74,48,0.5)',
+              borderColor: 'rgba(191,74,48,0.7)',
+              pointRadius: 3,
+              pointHoverRadius: 5,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: true, position: 'top', labels: { boxWidth: 8, usePointStyle: true, font: { size: 11 } } },
+            tooltip: {
+              callbacks: {
+                label: item => ` ${item.dataset.label}: ${fmtTime(item.parsed.y)}`,
+              }
+            }
+          },
+          scales: {
+            x: {
+              type: 'time',
+              time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
+              ticks: { font: { family: "'JetBrains Mono', monospace", size: 10 } },
+            },
+            y: {
+              min: 5, max: 23,
+              ticks: {
+                stepSize: 2,
+                callback: v => fmtTime(v),
+                font: { family: "'JetBrains Mono', monospace", size: 10 },
+              },
+              reverse: false,
+            }
+          }
+        }
+      });
+    }
+
+    function renderCategoriesChart(categories) {
+      destroyChart('categories');
+      const ctx = document.getElementById('chartCategories').getContext('2d');
+      const top = categories.slice(0, 15);
+      const palette = ['#BF4A30','#2E6B62','#C99A2E','#6B4C8A','#4A7B8C','#D98030','#8C6B4A','#5A8C5A','#8A4A6B','#4A6B8C','#BF8A30','#6B8A4A','#8C4A4A','#4A8C8A','#8A6B4C'];
+
+      charts.categories = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: top.map(c => c.name.length > 28 ? c.name.slice(0, 26) + '…' : c.name),
+          datasets: [{
+            label: 'Hours',
+            data: top.map(c => Math.round(c.hours * 10) / 10),
+            backgroundColor: palette.map(c => c + '44'),
+            borderColor: palette.map(c => c + 'BB'),
+            borderWidth: 1.5,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              beginAtZero: true,
+              ticks: { callback: v => v + 'h', font: { family: "'JetBrains Mono', monospace", size: 10 } },
+            },
+            y: {
+              ticks: { font: { size: 10 }, mirror: false },
+            }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: { label: item => ` ${fmtHours(item.parsed.x)}` }
+            }
+          }
+        }
+      });
+    }
+
+    /* ── Open in Emacs ────────────────────────── */
+    function openInEmacs(file, task) {
+      const params = new URLSearchParams({ file, search: task });
+      fetch('/api/open?' + params.toString(), { method: 'POST' })
+        .then(r => r.json())
+        .then(r => { if (r.status !== 'ok') console.error('open failed:', r); })
+        .catch(e => console.error('open error:', e));
+    }
+
+    /* ── Render Table ─────────────────────────── */
+    let tableDays = [];
+    let tableSort = { key: 'date', dir: 'desc' };
+
+    function renderTable(days) {
+      tableDays = days.slice(-40);
+      tableSort = { key: 'date', dir: 'desc' };
+      updateTableHeaders();
+      renderTableRows();
+    }
+
+    function renderTableRows() {
+      const tbody = document.getElementById('tableBody');
+      const sorted = [...tableDays].sort((a, b) => {
+        const va = a[tableSort.key], vb = b[tableSort.key];
+        const cmp = va < vb ? -1 : va > vb ? 1 : 0;
+        return tableSort.dir === 'asc' ? cmp : -cmp;
+      });
+      const maxHours = Math.max(...tableDays.map(d => d.hours), 1);
+      const recent = sorted;
+
+      tbody.innerHTML = recent.map(d => {
+        const barW = Math.round(d.hours / maxHours * 80);
+        const tasksHtml = d.taskNames.map(t => {
+          const file = d.taskFiles[t];
+          if (file) {
+            const esc = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+            return `<span class="tag tag-link" data-file="${esc(file)}" data-task="${esc(t)}">${t}</span>`;
+          }
+          return `<span class="tag">${t}</span>`;
+        }).join('');
+        return `<tr>
+          <td class="mono">${d.date}</td>
+          <td class="mono">${fmtHours(d.hours)} <span class="duration-bar" style="width:${barW}px"></span></td>
+          <td class="mono">${d.taskCount}</td>
+          <td class="mono">${fmtTime(d.firstIn)}</td>
+          <td class="mono">${fmtTime(d.lastOut)}</td>
+          <td>${tasksHtml}</td>
+        </tr>`;
+      }).join('');
+
+      // Delegated click handler for tag-link elements
+      tbody.addEventListener('click', e => {
+        const tag = e.target.closest('.tag-link');
+        if (!tag) return;
+        const file = tag.dataset.file;
+        const task = tag.dataset.task;
+        if (file) openInEmacs(file, task);
+      });
+    }
+
+    function updateTableHeaders() {
+      document.querySelectorAll('.data-table th.sortable').forEach(th => {
+        th.classList.remove('asc', 'desc');
+        if (th.dataset.sort === tableSort.key) th.classList.add(tableSort.dir);
+      });
+    }
+
+    // Column header sort clicks
+    document.querySelector('.data-table thead').addEventListener('click', e => {
+      const th = e.target.closest('th.sortable');
+      if (!th) return;
+      const key = th.dataset.sort;
+      if (tableSort.key === key) {
+        tableSort.dir = tableSort.dir === 'desc' ? 'asc' : 'desc';
+      } else {
+        tableSort.key = key;
+        tableSort.dir = key === 'date' ? 'desc' : 'desc';
+      }
+      updateTableHeaders();
+      renderTableRows();
+    });
+
+    /* ── Aggregate by week ────────────────────── */
+    function aggregateByWeek(days) {
+      const map = {};
+      for (const d of days) {
+        const date = new Date(d.date);
+        const mon = getMonday(date);
+        const key = localDateStr(mon);
+        if (!map[key]) map[key] = { week: key, hours: 0, days: 0, weekendDays: 0, weekendHours: 0 };
+        map[key].hours += d.hours;
+        map[key].days += 1;
+        const dow = date.getDay();
+        if (dow === 0 || dow === 6) {
+          map[key].weekendDays += 1;
+          map[key].weekendHours += d.hours;
+        }
+      }
+      return Object.values(map).sort((a, b) => a.week.localeCompare(b.week));
+    }
+
+    /* ── Wellbeing computations ───────────────── */
+    function computeWellbeing(days, entries) {
+      const now = new Date();
+      const today = localDateStr(now);
+      const thisMonth = today.slice(0, 7);
+
+      // --- Weekly hours (last 4 complete weeks) ---
+      const weeks = aggregateByWeek(days);
+      const recentWeeks = weeks.slice(-5, -1); // last 4 complete weeks (exclude current partial)
+      const currentWeek = weeks[weeks.length - 1];
+      const avgWeeklyHours = recentWeeks.length
+        ? recentWeeks.reduce((s, w) => s + w.hours, 0) / recentWeeks.length : 0;
+
+      // Score: 35-45h = 100, 25-35 or 45-50 = 70, <25 or >50 = 30
+      let weeklyScore;
+      if (avgWeeklyHours >= 35 && avgWeeklyHours <= 45) weeklyScore = 100;
+      else if (avgWeeklyHours >= 28 && avgWeeklyHours < 35) weeklyScore = 75;
+      else if (avgWeeklyHours > 45 && avgWeeklyHours <= 50) weeklyScore = 65;
+      else if (avgWeeklyHours > 50) weeklyScore = 25;
+      else weeklyScore = 50;
+
+      // --- Weekend work (last 8 weeks) ---
+      const last8 = weeks.slice(-9, -1);
+      const weekendsWorked = last8.filter(w => w.weekendDays > 0).length;
+      const weekendRatio = last8.length ? weekendsWorked / last8.length : 0;
+      let weekendScore;
+      if (weekendRatio <= 0.1) weekendScore = 100;
+      else if (weekendRatio <= 0.25) weekendScore = 80;
+      else if (weekendRatio <= 0.5) weekendScore = 50;
+      else weekendScore = 20;
+
+      // Weekend days this month
+      const monthWeekendDays = days.filter(d => {
+        if (!d.date.startsWith(thisMonth)) return false;
+        const dow = new Date(d.date).getDay();
+        return dow === 0 || dow === 6;
+      });
+
+      // --- After-hours work (before 7am or after 19:00) ---
+      const recentEntries = entries.filter(e => e.date >= (recentWeeks[0]?.week || today));
+      const afterHoursCount = recentEntries.filter(e => e.start_hour < 7 || e.end_hour > 19).length;
+      const afterHoursRatio = recentEntries.length ? afterHoursCount / recentEntries.length : 0;
+      let afterScore;
+      if (afterHoursRatio <= 0.1) afterScore = 100;
+      else if (afterHoursRatio <= 0.25) afterScore = 70;
+      else if (afterHoursRatio <= 0.5) afterScore = 40;
+      else afterScore = 15;
+
+      // --- Longest streak without a day off ---
+      const daySet = new Set(days.map(d => d.date));
+      let maxStreak = 0, currentStreak = 0;
+      const sortedDays = [...days].sort((a, b) => a.date.localeCompare(b.date));
+      if (sortedDays.length > 0) {
+        // Walk from first to last day
+        let d = new Date(sortedDays[sortedDays.length - 1].date);
+        const earliest = new Date(d);
+        earliest.setDate(earliest.getDate() - 90); // look back 90 days
+        currentStreak = 0;
+        while (d >= earliest) {
+          const ds = localDateStr(d);
+          if (daySet.has(ds)) {
+            currentStreak++;
+            maxStreak = Math.max(maxStreak, currentStreak);
+          } else {
+            currentStreak = 0;
+          }
+          d.setDate(d.getDate() - 1);
+        }
+      }
+      // Find current streak (consecutive days ending at most recent day)
+      let liveStreak = 0;
+      if (sortedDays.length > 0) {
+        let d = new Date(sortedDays[sortedDays.length - 1].date);
+        while (daySet.has(localDateStr(d))) {
+          liveStreak++;
+          d.setDate(d.getDate() - 1);
+        }
+      }
+
+      let streakScore;
+      if (maxStreak <= 5) streakScore = 100;
+      else if (maxStreak <= 8) streakScore = 75;
+      else if (maxStreak <= 12) streakScore = 45;
+      else streakScore = 15;
+
+      // --- Rest days per month (last month) ---
+      const monthDays = days.filter(d => d.date.startsWith(thisMonth));
+      const workedWeekdaysThisMonth = monthDays.filter(d => {
+        const dow = new Date(d.date).getDay();
+        return dow !== 0 && dow !== 6;
+      }).length;
+      // Count calendar weekdays in this month so far
+      const monthStart = new Date(thisMonth + '-01');
+      let totalWeekdays = 0;
+      const iter = new Date(monthStart);
+      while (iter <= now) {
+        const dow = iter.getDay();
+        if (dow !== 0 && dow !== 6) totalWeekdays++;
+        iter.setDate(iter.getDate() + 1);
+      }
+      const restDays = totalWeekdays - workedWeekdaysThisMonth;
+      // rest days: 8+/month excellent, 4-7 OK, <4 concerning
+      let restScore;
+      if (restDays >= 6) restScore = 100;
+      else if (restDays >= 4) restScore = 75;
+      else if (restDays >= 2) restScore = 50;
+      else restScore = 30;
+
+      // --- Schedule regularity (std dev of start times) ---
+      const recentDays = days.slice(-30);
+      const starts = recentDays.map(d => d.firstIn);
+      const startStd = std(starts);
+      let regularityScore;
+      if (startStd <= 1.0) regularityScore = 100;
+      else if (startStd <= 1.5) regularityScore = 75;
+      else if (startStd <= 2.5) regularityScore = 45;
+      else regularityScore = 20;
+
+      // --- Composite health score ---
+      const healthScore = Math.round(
+        weeklyScore * 0.25 +
+        weekendScore * 0.2 +
+        afterScore * 0.15 +
+        streakScore * 0.15 +
+        restScore * 0.15 +
+        regularityScore * 0.1
+      );
+
+      return {
+        healthScore,
+        avgWeeklyHours, currentWeekHours: currentWeek?.hours || 0,
+        weeklyScore,
+        weekendsWorked, weekendTotal: last8.length, weekendScore, monthWeekendDays: monthWeekendDays.length,
+        afterHoursCount, afterHoursTotal: recentEntries.length, afterScore,
+        maxStreak, liveStreak, streakScore,
+        restDays, totalWeekdays, restScore,
+        startStd, regularityScore,
+      };
+    }
+
+    /* ── Render Wellbeing ─────────────────────── */
+    function scoreColor(score) {
+      if (score >= 75) return '#3D8B37';
+      if (score >= 50) return '#C99A2E';
+      return '#BF4A30';
+    }
+    function statusDot(score) {
+      if (score >= 75) return 'status-green';
+      if (score >= 50) return 'status-yellow';
+      return 'status-red';
+    }
+
+    function renderWellbeing(days, entries) {
+      const wb = computeWellbeing(days, entries);
+
+      // Gauge
+      const circumference = 314.16;
+      const offset = circumference - (wb.healthScore / 100) * circumference;
+      const gaugeFill = document.getElementById('gaugeFill');
+      gaugeFill.style.stroke = scoreColor(wb.healthScore);
+      gaugeFill.setAttribute('stroke-dashoffset', offset);
+      document.getElementById('gaugeValue').textContent = wb.healthScore;
+      document.getElementById('gaugeValue').setAttribute('fill', scoreColor(wb.healthScore));
+
+      // Weekly hours
+      document.getElementById('indWeeklyHours').innerHTML =
+        `<span class="ind-status ${statusDot(wb.weeklyScore)}"></span>${fmtHours(wb.avgWeeklyHours)}`;
+      const weeklyPct = Math.min(wb.avgWeeklyHours / 50 * 100, 100);
+      const weeklyBar = document.getElementById('indWeeklyBar');
+      weeklyBar.style.width = weeklyPct + '%';
+      weeklyBar.style.background = scoreColor(wb.weeklyScore);
+      document.getElementById('indWeeklyDetail').textContent =
+        `This week: ${fmtHours(wb.currentWeekHours)} · Target: 35-45h`;
+
+      // Weekend work
+      document.getElementById('indWeekend').innerHTML =
+        `<span class="ind-status ${statusDot(wb.weekendScore)}"></span>${wb.weekendsWorked}/${wb.weekendTotal} wks`;
+      const weekendBar = document.getElementById('indWeekendBar');
+      weekendBar.style.width = (wb.weekendsWorked / Math.max(wb.weekendTotal, 1) * 100) + '%';
+      weekendBar.style.background = scoreColor(wb.weekendScore);
+      document.getElementById('indWeekendDetail').textContent =
+        `${wb.monthWeekendDays} weekend days this month`;
+
+      // After hours
+      const afterPct = wb.afterHoursTotal ? (wb.afterHoursCount / wb.afterHoursTotal * 100) : 0;
+      document.getElementById('indAfterHours').innerHTML =
+        `<span class="ind-status ${statusDot(wb.afterScore)}"></span>${Math.round(afterPct)}%`;
+      const afterBar = document.getElementById('indAfterBar');
+      afterBar.style.width = afterPct + '%';
+      afterBar.style.background = scoreColor(wb.afterScore);
+      document.getElementById('indAfterDetail').textContent =
+        `${wb.afterHoursCount} entries before 7am/after 7pm`;
+
+      // Streak
+      document.getElementById('indStreak').innerHTML =
+        `<span class="ind-status ${statusDot(wb.streakScore)}"></span>${wb.maxStreak}d max`;
+      const streakBar = document.getElementById('indStreakBar');
+      streakBar.style.width = Math.min(wb.maxStreak / 14 * 100, 100) + '%';
+      streakBar.style.background = scoreColor(wb.streakScore);
+      document.getElementById('indStreakDetail').textContent =
+        `Current: ${wb.liveStreak}d · 5d or less is healthy`;
+
+      // Rest days
+      document.getElementById('indRest').innerHTML =
+        `<span class="ind-status ${statusDot(wb.restScore)}"></span>${wb.restDays} days`;
+      const restBar = document.getElementById('indRestBar');
+      restBar.style.width = Math.min(wb.restDays / 8 * 100, 100) + '%';
+      restBar.style.background = scoreColor(wb.restScore);
+      document.getElementById('indRestDetail').textContent =
+        `${wb.totalWeekdays} weekdays so far · ${wb.totalWeekdays - wb.restDays} worked`;
+
+      // Regularity
+      document.getElementById('indRegularity').innerHTML =
+        `<span class="ind-status ${statusDot(wb.regularityScore)}"></span>σ ${wb.startStd.toFixed(1)}h`;
+      const regBar = document.getElementById('indRegularityBar');
+      regBar.style.width = Math.max(0, 100 - wb.startStd * 25) + '%';
+      regBar.style.background = scoreColor(wb.regularityScore);
+      document.getElementById('indRegularityDetail').textContent =
+        `Start time std dev · <1.5h is consistent`;
+    }
+
+    /* ── Render Weekly Hours Chart ────────────── */
+    function renderWeeklyChart(days) {
+      destroyChart('weekly');
+      const ctx = document.getElementById('chartWeekly').getContext('2d');
+      const weeks = aggregateByWeek(days);
+
+      charts.weekly = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: weeks.map(w => w.week),
+          datasets: [
+            {
+              type: 'bar',
+              label: 'Total',
+              data: weeks.map(w => Math.round(w.hours * 10) / 10),
+              backgroundColor: weeks.map(w =>
+                w.hours > 50 ? 'rgba(191,74,48,0.35)' :
+                w.hours > 45 ? 'rgba(201,154,46,0.3)' :
+                w.hours >= 35 ? 'rgba(46,107,98,0.25)' :
+                'rgba(74,123,140,0.25)'
+              ),
+              borderColor: weeks.map(w =>
+                w.hours > 50 ? 'rgba(191,74,48,0.7)' :
+                w.hours > 45 ? 'rgba(201,154,46,0.6)' :
+                w.hours >= 35 ? 'rgba(46,107,98,0.6)' :
+                'rgba(74,123,140,0.6)'
+              ),
+              borderWidth: 1,
+              borderRadius: 3,
+            },
+            {
+              type: 'line',
+              label: 'Weekend',
+              data: weeks.map(w => Math.round(w.weekendHours * 10) / 10),
+              borderColor: 'rgba(201,154,46,0.8)',
+              backgroundColor: 'rgba(201,154,46,0.1)',
+              borderWidth: 2,
+              pointRadius: ctx => weeks[ctx.dataIndex]?.weekendHours > 0 ? 3 : 0,
+              fill: true,
+              tension: 0.3,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: true, position: 'top', labels: { boxWidth: 8, usePointStyle: true, font: { size: 11 } } },
+            tooltip: {
+              callbacks: {
+                title: items => `Week of ${items[0]?.label || ''}`,
+                label: item => ` ${item.dataset.label}: ${fmtHours(item.parsed.y)}`,
+              }
+            },
+            annotation: undefined
+          },
+          scales: {
+            x: {
+              type: 'time',
+              time: { unit: 'month', displayFormats: { month: 'MMM yy' } },
+              ticks: { font: { family: "'JetBrains Mono', monospace", size: 10 } },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { callback: v => v + 'h', font: { family: "'JetBrains Mono', monospace", size: 10 } },
+            }
+          }
+        },
+        plugins: [{
+          id: 'healthyZone',
+          beforeDraw(chart) {
+            if (!chart.chartArea?.left) return;
+            const { ctx, chartArea: { left, right }, scales: { y } } = chart;
+            const top35 = y.getPixelForValue(45);
+            const bot45 = y.getPixelForValue(35);
+            ctx.save();
+            ctx.fillStyle = 'rgba(61,139,55,0.06)';
+            ctx.fillRect(left, top35, right - left, bot45 - top35);
+            ctx.strokeStyle = 'rgba(61,139,55,0.2)';
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(left, top35); ctx.lineTo(right, top35);
+            ctx.moveTo(left, bot45); ctx.lineTo(right, bot45);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }]
+      });
+    }
+
+    /* ── Render Missing Days Calendar ────────── */
+    function renderMissingDays(days) {
+      const grid = document.getElementById('missingGrid');
+      grid.innerHTML = '';
+
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth();
+      const today = localDateStr(now);
+      const monthStr = today.slice(0, 7);
+
+      document.getElementById('missingTitle').textContent =
+        now.toLocaleDateString('en', { month: 'long', year: 'numeric' });
+
+      const daySet = new Set(days.filter(d => d.date.startsWith(monthStr)).map(d => d.date));
+
+      // Day headers
+      ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'day-header';
+        el.textContent = d;
+        grid.appendChild(el);
+      });
+
+      // First day of month
+      const firstDay = new Date(year, month, 1);
+      const startDow = (firstDay.getDay() + 6) % 7; // 0=Mon
+
+      // Empty cells before first day
+      for (let i = 0; i < startDow; i++) {
+        const el = document.createElement('div');
+        el.className = 'missing-day empty';
+        grid.appendChild(el);
+      }
+
+      // Days of month
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+        const dow = new Date(year, month, d).getDay();
+        const isWeekend = dow === 0 || dow === 6;
+        const isFuture = dateStr > today;
+        const worked = daySet.has(dateStr);
+
+        const el = document.createElement('div');
+        el.className = 'missing-day';
+        el.textContent = d;
+
+        if (isFuture) {
+          el.classList.add('future');
+        } else if (isWeekend && worked) {
+          el.classList.add('weekend-worked');
+        } else if (isWeekend) {
+          el.classList.add('weekend-off');
+        } else if (worked) {
+          el.classList.add('worked');
+        } else {
+          el.classList.add('missed');
+        }
+
+        // Tooltip
+        if (worked) {
+          const dayData = days.find(dd => dd.date === dateStr);
+          el.title = `${dateStr}: ${fmtHours(dayData?.hours || 0)}`;
+        } else if (!isFuture && !isWeekend) {
+          el.title = `${dateStr}: No clock entries`;
+        }
+
+        grid.appendChild(el);
+      }
+    }
+
+    /* ── Year Filter ─────────────────────────── */
+    function populateYearFilter(entries) {
+      const years = [...new Set(entries.map(e => e.date.slice(0, 4)))].sort();
+      const select = document.getElementById('yearFilter');
+      select.innerHTML = '<option value="all">All Years</option>' +
+        years.map(y => `<option value="${y}">${y}</option>`).join('');
+      // Default to latest year
+      select.value = years[years.length - 1] || 'all';
+    }
+
+    function getFilteredEntries() {
+      const year = document.getElementById('yearFilter').value;
+      if (year === 'all') return RAW;
+      return RAW.filter(e => e.date.startsWith(year));
+    }
+
+    /* ── Main render ─────────────────────────── */
+    function render() {
+      FILTERED = getFilteredEntries();
+      const days = aggregateByDay(FILTERED);
+      const allDays = aggregateByDay(RAW);
+      const months = aggregateByMonth(days);
+      const categories = aggregateByCategory(FILTERED);
+
+      const safe = (fn, ...args) => { try { fn(...args); } catch(e) { console.error(fn.name, e); } };
+      safe(renderKPIs, days, allDays);
+      safe(renderWellbeing, days, FILTERED);
+      safe(renderWeeklyChart, days);
+      safe(renderMissingDays, days);
+      safe(renderHeatmap, days);
+      safe(renderDailyChart, days);
+      safe(renderMonthlyChart, months);
+      safe(renderScheduleChart, days);
+      safe(renderCategoriesChart, categories);
+      safe(renderTable, days);
+    }
+
+    /* ── Init ─────────────────────────────────── */
+    async function fetchData() {
+      // Try static JSON first (GitHub Pages), fall back to API (local server)
+      for (const url of ['data.json', '/api/entries']) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) return await res.json();
+        } catch (_) {}
+      }
+      throw new Error('No data source available');
+    }
+
+    async function init() {
+      try {
+        RAW = await fetchData();
+        populateYearFilter(RAW);
+        render();
+      } catch (err) {
+        console.error('Failed to load data:', err);
+        document.getElementById('kpiToday').textContent = 'Error';
+      } finally {
+        document.getElementById('loading').classList.add('hidden');
+      }
+    }
+
+    // Fallback: always hide loading after 5s max
+    setTimeout(() => document.getElementById('loading').classList.add('hidden'), 5000);
+
+    document.getElementById('yearFilter').addEventListener('change', render);
+
+    document.getElementById('btnRefresh').addEventListener('click', async () => {
+      const btn = document.getElementById('btnRefresh');
+      btn.textContent = '↻ Loading…';
+      btn.disabled = true;
+      try {
+        await fetch('/api/refresh', { method: 'POST' });
+        const res = await fetch('/api/entries');
+        RAW = await res.json();
+        populateYearFilter(RAW);
+        render();
+      } catch (err) {
+        console.error('Refresh failed:', err);
+      } finally {
+        btn.textContent = '↻ Refresh';
+        btn.disabled = false;
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

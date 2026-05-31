@@ -9,7 +9,7 @@ favicon: images/favicon.ico
 version: 2
 
 # Personal info
-name: Mohcine Chraibi
+name: Dr. Mohcine Chraibi
 title: Head of the division Pedestrian Dynamics - Modeling at Civil Safety Research
 email: m.chraibi@fz-juelich.de
 website: https://www.fz-juelich.de/profile/chraibi_m
@@ -29,13 +29,16 @@ linkedin_username: mohcine-chraibi
 # pinterest_username: jekyll
 youtube_username: "@pedestrianandfiredynamics7738"
 # googleplus_username: +jekyll
-orcid_username: 0000-0002-0999-6807
+# orcid_username: 0000-0002-0999-6807
 
 # Additional icon links
 additional_links:
 - title: Google Scholar
   icon: fas fa-graduation-cap
   url: https://scholar.google.com/citations?user=WA1blukAAAAJ
+- title: Consulting
+  icon: fas fa-briefcase
+  url: /consulting/
 # - title: jupedsim
 #   icon: fas fa-globe
 #   url: https://www.jupedsim.org
@@ -51,7 +54,7 @@ additional_links:
 
 # About Section
 # about_title: About Me
-about_profile_image: images/mohcine_ghibli.png
+about_profile_image: images/profile_ibit26.png
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Mohcine, a senior researcher at Forschungszentrum Jülich focusing on pedestrian dynamics and crowd behavior. My research combines computational  modeling with empirical validation to better understand how people move and interact in crowds.
   Want to see what I do in action? Check out this beautiful comic  
@@ -60,6 +63,8 @@ about_content: | # this will include new lines to allow paragraphs
   I'm passionate about open source software for simulating, analyzing and visualizing pedestrian dynamics, which I believe is fundamental to good scientific practice.
   
   To help grow our research community, I maintain a website that collects useful information and news about pedestrian dynamics at <i class="fas fa-globe"></i> [pedestriandynamics.org](https://pedestriandynamics.org/) and a GitHub-organisation at <i class="fab fa-github"></i> [github.com/PedestrianDynamics](https://github.com/PedestrianDynamics/).
+
+  Alongside my research, I take on selected independent consulting engagements in pedestrian simulation, JuPedSim workflows, and crowd analysis — see <i class="fas fa-briefcase"></i> [Consulting](/consulting/).
 
   ------
   
@@ -149,6 +154,17 @@ content:
           Streamlit application to visualize experiments performed in five countries.
         description: | # this will include new lines to allow paragraphs
           For the first time, we explore external validity and cross-cultural generalizability by conducting the same experiment in five different countries. Each study examines the impact of varying gender compositions on single-file pedestrian movement. Our findings reveal consistent effects of gender composition across all locations, with no significant deviations in the fundamental diagrams, particularly in the bounded regime.
+
+  - title: Independent Scientific Consulting
+    layout: text
+    content: | # this will include new lines to allow paragraphs
+      Pedestrian dynamics · crowd simulation · JuPedSim workflows · simulation review · training · prototyping.
+
+      For research groups, planning offices, mobility companies, and infrastructure stakeholders that need pedestrian simulation done in a scientifically sound, reproducible, and practical way.
+
+      <i class="fas fa-briefcase"></i> [See services and contact &rarr;](/consulting/)
+
+      <small><em>Independent consulting by Mohcine Chraibi. This activity is separate from my employment at Forschungszentrum Jülich; no institutional endorsement is implied.</em></small>
 
   - title: Experience # Title for the section
     layout: list # Type of content section (list/text)
