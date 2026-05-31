@@ -2,16 +2,20 @@
 layout: page
 title: "Consulting"
 permalink: /consulting/
+description: "Independent scientific consulting in pedestrian dynamics, crowd simulation, evacuation analysis, and JuPedSim workflows."
 ---
 
 <style>
 .consulting p, .consulting li, .consulting dd { font-size: 1.55rem; line-height: 1.6; }
-.consulting p.lead { font-size: 1.75rem; line-height: 1.5; }
-.consulting h2 { font-size: 2.4rem; margin-top: 2em; margin-bottom: 0.6em; font-weight: 600; }
-.consulting dt { font-weight: 600; margin-top: 0.8em; }
-.consulting dd { margin-left: 0; margin-bottom: 0.4em; }
+.consulting p.lead, .consulting .lead { font-size: 1.75rem; line-height: 1.5; margin-top: 0; }
+.consulting h2 { font-size: 2.4rem; margin-top: 2rem; margin-bottom: .6rem; font-weight: 600; }
+.consulting dl { margin: 0; }
+.consulting dt { font-weight: 600; margin-top: 1.2rem; font-size: 1.55rem; }
+.consulting dd { margin: .2rem 0 0 0; color: #444; }
+.consulting ul { padding-left: 1.2rem; }
 .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5em 0; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.consulting .disclaimer { margin-top: 2rem; font-size: 1rem; color: #666; border-top: 1px solid #eee; padding-top: 1rem; }
 </style>
 
 <div class="consulting">
@@ -55,8 +59,8 @@ I help research groups, planning offices, mobility companies, and infrastructure
 
 <div class="video-embed">
   <iframe
-    src="https://www.youtube.com/embed/5uIujwpb09o"
-    title="JuPedSim App demo"
+    src="https://www.youtube-nocookie.com/embed/5uIujwpb09o"
+    title="JuPedSim App demo: building and running a scenario"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
@@ -64,8 +68,8 @@ I help research groups, planning offices, mobility companies, and infrastructure
 
 <div class="video-embed">
   <iframe
-    src="https://www.youtube.com/embed/Urgg8wOQ8U8"
-    title="JuPedSim App demo"
+    src="https://www.youtube-nocookie.com/embed/Urgg8wOQ8U8"
+    title="JuPedSim App demo: importing geometry and analyzing results"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe>
@@ -95,7 +99,7 @@ I help research groups, planning offices, mobility companies, and infrastructure
 <p>15+ years in pedestrian dynamics, crowd simulation, research software development, and open-source simulation tools. Co-developer of <a href="https://www.jupedsim.org">JuPedSim</a> and <a href="https://pedpy.readthedocs.io/">PedPy</a>.</p>
 
 <h2>Contact</h2>
-<p>For consulting inquiries: <a href="mailto:consulting@chraibi.de">consulting@chraibi.de</a></p>
+<p>For consulting inquiries: <a href="mailto:chraibi@uni-wuppertal.de">chraibi@uni-wuppertal.de</a></p>
 
 <p class="disclaimer"><em>Independent consulting by Mohcine Chraibi. No institutional endorsement by my employer is implied. Simulation results are decision support and not a guarantee of real-world safety or regulatory approval.</em></p>
 
