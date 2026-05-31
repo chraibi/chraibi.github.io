@@ -16,23 +16,29 @@ description: "Independent scientific consulting in pedestrian dynamics, crowd si
 .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5em 0; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 .consulting .disclaimer { margin-top: 2rem; font-size: 1rem; color: #666; border-top: 1px solid #eee; padding-top: 1rem; }
-.consulting .profile-pic { float: right; width: 200px; max-width: 38%; border-radius: 12px; margin: 0 0 1rem 1.5rem; }
-@media (max-width: 600px) { .consulting .profile-pic { float: none; display: block; margin: 0 auto 1.25rem; width: 60%; max-width: 240px; } }
+.consulting .intro { display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 1.5rem; }
+.consulting .intro-text { flex: 1; min-width: 0; }
+.consulting .intro-text .lead { margin-top: 0; }
+.consulting .profile-pic { flex: 0 0 220px; width: 220px; border-radius: 12px; }
+@media (max-width: 600px) { .consulting .intro { flex-direction: column; align-items: center; } .consulting .intro-text { width: 100%; } .consulting .profile-pic { width: 60%; max-width: 240px; flex-basis: auto; } }
 </style>
 
 <div class="consulting">
 
 <p><a href="/">&larr; Back to home</a></p>
 
-<img class="profile-pic" src="/images/Mohcine_hh.png" alt="Dr. Habil. Mohcine Chraibi">
+<div class="intro">
+  <img class="profile-pic" src="/images/Mohcine_hh.png" alt="Dr. Habil. Mohcine Chraibi">
+  <div class="intro-text">
+    <p class="lead">
+    I help research groups, planning offices, mobility companies, and infrastructure stakeholders apply pedestrian dynamics simulation in a scientifically sound, reproducible, and practical way.
+    </p>
 
-<p class="lead">
-I help research groups, planning offices, mobility companies, and infrastructure stakeholders apply pedestrian dynamics simulation in a scientifically sound, reproducible, and practical way.
-</p>
+    <p>Services include simulation audits, JuPedSim consulting, training workshops, technical prototyping, and expert review of pedestrian and evacuation simulation workflows.</p>
 
-<p>Services include simulation audits, JuPedSim consulting, training workshops, technical prototyping, and expert review of pedestrian and evacuation simulation workflows.</p>
-
-<p>One person to talk to, with a network of specialists I bring in when a project needs more. I handle the core myself.</p>
+    <p>One person to talk to, with a network of specialists I bring in when a project needs more. I handle the core myself.</p>
+  </div>
+</div>
 
 <h2>Services</h2>
 
