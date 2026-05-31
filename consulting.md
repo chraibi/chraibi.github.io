@@ -28,7 +28,7 @@ description: "Independent scientific consulting in pedestrian dynamics, crowd si
 <p><a href="/">&larr; Back to home</a></p>
 
 <div class="intro">
-  <img class="profile-pic" src="/images/Mohcine_hh.png" alt="Dr. Habil. Mohcine Chraibi">
+  <img class="profile-pic" src="/images/mohcine_hh2.png" alt="Dr. Habil. Mohcine Chraibi">
   <div class="intro-text">
     <p class="lead">
     I help research groups, planning offices, mobility companies, and infrastructure stakeholders apply pedestrian dynamics simulation in a scientifically sound, reproducible, and practical way.
