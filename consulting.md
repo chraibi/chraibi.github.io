@@ -16,11 +16,15 @@ description: "Independent scientific consulting in pedestrian dynamics, crowd si
 .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5em 0; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 .consulting .disclaimer { margin-top: 2rem; font-size: 1rem; color: #666; border-top: 1px solid #eee; padding-top: 1rem; }
+.consulting .profile-pic { float: right; width: 200px; max-width: 38%; border-radius: 12px; margin: 0 0 1rem 1.5rem; }
+@media (max-width: 600px) { .consulting .profile-pic { float: none; display: block; margin: 0 auto 1.25rem; width: 60%; max-width: 240px; } }
 </style>
 
 <div class="consulting">
 
 <p><a href="/">&larr; Back to home</a></p>
+
+<img class="profile-pic" src="/images/Mohcine_hh.png" alt="Dr. Habil. Mohcine Chraibi">
 
 <p class="lead">
 I help research groups, planning offices, mobility companies, and infrastructure stakeholders apply pedestrian dynamics simulation in a scientifically sound, reproducible, and practical way.
