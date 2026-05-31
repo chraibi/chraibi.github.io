@@ -16,19 +16,29 @@ description: "Independent scientific consulting in pedestrian dynamics, crowd si
 .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5em 0; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 .consulting .disclaimer { margin-top: 2rem; font-size: 1rem; color: #666; border-top: 1px solid #eee; padding-top: 1rem; }
+.consulting .intro { display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 1.5rem; }
+.consulting .intro-text { flex: 1; min-width: 0; }
+.consulting .intro-text .lead { margin-top: 0; }
+.consulting .profile-pic { flex: 0 0 220px; width: 220px; border-radius: 12px; }
+@media (max-width: 600px) { .consulting .intro { flex-direction: column; align-items: center; } .consulting .intro-text { width: 100%; } .consulting .profile-pic { width: 60%; max-width: 240px; flex-basis: auto; } }
 </style>
 
 <div class="consulting">
 
 <p><a href="/">&larr; Back to home</a></p>
 
-<p class="lead">
-I help research groups, planning offices, mobility companies, and infrastructure stakeholders apply pedestrian dynamics simulation in a scientifically sound, reproducible, and practical way.
-</p>
+<div class="intro">
+  <img class="profile-pic" src="/images/mohcine_hh2.png" alt="Dr. Habil. Mohcine Chraibi">
+  <div class="intro-text">
+    <p class="lead">
+    I help research groups, planning offices, mobility companies, and infrastructure stakeholders apply pedestrian dynamics simulation in a scientifically sound, reproducible, and practical way.
+    </p>
 
-<p>Services include simulation audits, JuPedSim consulting, training workshops, technical prototyping, and expert review of pedestrian and evacuation simulation workflows.</p>
+    <p>Services include simulation audits, JuPedSim consulting, training workshops, technical prototyping, and expert review of pedestrian and evacuation simulation workflows.</p>
 
-<p>One person to talk to, with a network of specialists I bring in when a project needs more. I handle the core myself.</p>
+    <p>One person to talk to, with a network of specialists I bring in when a project needs more. I handle the core myself.</p>
+  </div>
+</div>
 
 <h2>Services</h2>
 
@@ -99,7 +109,7 @@ I help research groups, planning offices, mobility companies, and infrastructure
 <p>15+ years in pedestrian dynamics, crowd simulation, research software development, and open-source simulation tools. Co-developer of <a href="https://www.jupedsim.org">JuPedSim</a> and <a href="https://pedpy.readthedocs.io/">PedPy</a>.</p>
 
 <h2>Contact</h2>
-<p>For consulting inquiries: <a href="mailto:chraibi@uni-wuppertal.de">chraibi@uni-wuppertal.de</a></p>
+<p>For consulting inquiries: <a href="mailto:m.chraibi@protonmail.com">m.chraibi@protonmail.com</a></p>
 
 <p class="disclaimer"><em>Independent consulting by Mohcine Chraibi. No institutional endorsement by my employer is implied. Simulation results are decision support and not a guarantee of real-world safety or regulatory approval.</em></p>
 
