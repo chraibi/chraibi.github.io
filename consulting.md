@@ -99,7 +99,7 @@ I help research groups, planning offices, mobility companies, and infrastructure
 <p>15+ years in pedestrian dynamics, crowd simulation, research software development, and open-source simulation tools. Co-developer of <a href="https://www.jupedsim.org">JuPedSim</a> and <a href="https://pedpy.readthedocs.io/">PedPy</a>.</p>
 
 <h2>Contact</h2>
-<p>For consulting inquiries: <a href="mailto:chraibi@uni-wuppertal.de">chraibi@uni-wuppertal.de</a></p>
+<p>For consulting inquiries: <a href="mailto:m.chraibi@protonmail.com">m.chraibi@protonmail.com</a></p>
 
 <p class="disclaimer"><em>Independent consulting by Mohcine Chraibi. No institutional endorsement by my employer is implied. Simulation results are decision support and not a guarantee of real-world safety or regulatory approval.</em></p>
 

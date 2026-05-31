@@ -15,7 +15,7 @@ Not "freelance developer." The commercial core is **scientific expertise**, not 
 ## Brand Identity
 
 - Name: **Mohcine Chraibi — Scientific Simulation Consulting**
-- Email: `chraibi@uni-wuppertal.de` (interim, in use now); target `consulting@chraibi.de` once active. Never the FZJ address.
+- Email: `m.chraibi@protonmail.com` (interim, in use now); target `consulting@chraibi.de` once active. Never the FZJ address.
 - Disclaimer required on consulting pages: *"Independent consulting by Mohcine Chraibi. No institutional endorsement implied."*
 - Tone: expert/personal, not corporate. Keep the research credibility (JuPedSim author, 15+ years, publications) front and center.
 
@@ -73,7 +73,7 @@ Current branch `consulting-page` is drafting `consulting.md`. The page must:
 - Use English (international audience).
 - Show concrete services + who they are for + example engagements.
 - Carry the employer-separation disclaimer.
-- Use `chraibi@uni-wuppertal.de` for now (`consulting@chraibi.de` not active yet) — never the FZJ address.
+- Use `m.chraibi@protonmail.com` for now (`consulting@chraibi.de` not active yet) — never the FZJ address.
 - Stay an *expert profile* page; do not turn `chraibi.de` into an aggressive sales site.
 
 ## Competitor Reference: beyondsimulations.com
