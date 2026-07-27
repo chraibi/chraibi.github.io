@@ -38,6 +38,9 @@ additional_links:
 - title: Consulting
   icon: fas fa-briefcase
   url: /consulting/
+- title: Field Notes
+  icon: fas fa-pen-nib
+  url: /notes/
 # - title: jupedsim
 #   icon: fas fa-globe
 #   url: https://www.jupedsim.org
