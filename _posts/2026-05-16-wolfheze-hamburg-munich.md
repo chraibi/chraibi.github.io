@@ -3,6 +3,7 @@ layout: post
 title: "Wolfheze, Hamburg, Munich"
 lead: "One intensely refreshing week across three communities."
 description: "A CROWDING project meeting in Wolfheze, a crowd management workshop at the Hamburg Harbour Birthday, and the VIB workshop in Munich — notes from a week on the road."
+thumb: /images/notes/2026-05-wolfheze-hamburg-munich/crowding-retreat.jpg
 ---
 
 Last week was an intensely refreshing one.
