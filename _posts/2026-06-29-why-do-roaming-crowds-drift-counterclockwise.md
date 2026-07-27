@@ -4,6 +4,7 @@ title: "Why do roaming crowds drift counterclockwise — and where?"
 lead: "Testing the mechanism behind a curious experimental result with JuPedSim."
 description: "A Nature Communications paper reports that freely roaming crowds drift counterclockwise. We rebuilt the experiment in JuPedSim to test whether a slight individual left-turn bias explains it."
 linkedin: "https://www.linkedin.com/pulse/why-does-roaming-crowd-turn-counterclockwise-jupedsim-pptee/"
+thumb: /images/notes/2026-06-counterclockwise-crowd/fig1.gif
 ---
 
 <figure>
