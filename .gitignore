@@ -5,3 +5,4 @@ _drafts/
 
 # Global ~/.gitignore ignores *.png; site images live here and must be tracked
 !images/*.png
+!images/**/*.png
