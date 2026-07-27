@@ -4,6 +4,7 @@ title: "Why don't airlines board planes the optimal way?"
 lead: "The mathematically optimal boarding method has existed since 2008. We rebuilt the classic studies in JuPedSim to see why it stays on paper."
 description: "Steffen's optimal boarding method is dramatically faster in theory. A JuPedSim reproduction shows the optimum is also the most fragile: it collapses under low compliance, mixed passengers, and travel groups."
 linkedin: "https://www.linkedin.com/pulse/why-dont-airlines-board-planes-optimal-way-jupedsim-zijte/"
+thumb: /images/notes/2026-06-airplane-boarding/fig3.gif
 ---
 
 In 2008, astrophysicist Jason Steffen worked out the mathematically optimal way to board an airplane. It boards passengers in a precise interleaved order — window seats first, every other row — so that many people stow their luggage at the same time and nobody ever has to climb over a seated neighbor. In ideal conditions it's dramatically faster than how airlines actually do it. A counter-intuitive part of the result is that boarding back-to-front, which many airlines use, is no better than boarding everyone at random, and front-to-back is worse than random.
