@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{%- include head.html -%}
+
+<body class="{% if site.darkmode == true and site.darkmode != 'never' %}dark{% endif %}">
+
+  {%- include header.html -%}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+
+  <style>
+    .note-page { background: #fdfcf9; }
+    .note {
+      max-width: 680px; margin: 0 auto; padding: 4rem 1.25rem 5rem;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 1.9rem; line-height: 1.65; color: #26313b;
+      font-optical-sizing: auto;
+    }
+    .note-kicker {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 1.15rem; letter-spacing: .22em; text-transform: uppercase;
+      color: #477dca; display: flex; align-items: center; gap: 1rem;
+    }
+    .note-kicker a { color: inherit; text-decoration: none; }
+    .note-kicker a:hover { text-decoration: underline; }
+    .note-kicker::after { content: ""; flex: 1; height: 1px; background: #e3ddd2; }
+    .note-date {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 1.2rem; color: #8b8577; letter-spacing: .08em;
+      margin-top: 1rem; display: block;
+    }
+    .note h1.note-title {
+      font-family: "Newsreader", Georgia, serif; font-weight: 500;
+      font-size: 4.4rem; line-height: 1.12; letter-spacing: -0.015em;
+      color: #1c252e; margin: 1rem 0 0;
+    }
+    .note .note-lead {
+      font-style: italic; font-size: 2.25rem; line-height: 1.45;
+      color: #55606b; margin: 1.8rem 0 0;
+    }
+    .note-rule { border: 0; height: 1px; background: #e3ddd2; margin: 3rem 0; }
+    .note-body p { margin: 0 0 1.6em; }
+    .note-body > p:first-of-type::first-letter {
+      font-size: 4.6em; float: left; line-height: .82;
+      padding: .06em .12em 0 0; color: #477dca; font-weight: 500;
+    }
+    .note-body a { color: #477dca; text-decoration: none; border-bottom: 1px solid #c4d5ee; }
+    .note-body a:hover { border-bottom-color: #477dca; }
+    .note-body em { color: #55606b; }
+    .note-body pre {
+      font-size: 1.3rem; line-height: 1.55; background: #1c252e; color: #e8e4da;
+      border-radius: 6px; padding: 1.4rem 1.6rem; overflow-x: auto; margin: 2.2rem 0;
+    }
+    .note-body pre code { background: none; padding: 0; font-size: inherit; color: inherit; }
+    .note-body code {
+      font-size: .85em; background: #f0ece3; border-radius: 3px; padding: .1em .35em;
+    }
+    .note-body h2 {
+      font-family: "Newsreader", Georgia, serif; font-weight: 600;
+      font-size: 2.6rem; color: #1c252e; margin: 3rem 0 1rem; line-height: 1.2;
+    }
+    .note-body figure { margin: 2.6rem 0; }
+    .note-body figure img {
+      width: 100%; height: auto; display: block; border-radius: 4px;
+    }
+    .note-body figcaption {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 1.2rem; color: #8b8577; margin-top: .7rem;
+      letter-spacing: .02em;
+    }
+    .note-body .photo-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem;
+    }
+    .note-body .photo-row img { border-radius: 4px; }
+    @media (max-width: 560px) {
+      .note h1.note-title { font-size: 3.2rem; }
+      .note { font-size: 1.75rem; }
+      .note-body .photo-row { grid-template-columns: 1fr; }
+    }
+    .note-footer {
+      margin-top: 4rem; padding-top: 1.6rem; border-top: 1px solid #e3ddd2;
+      font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 1.3rem;
+      display: flex; justify-content: space-between; gap: 1rem; color: #8b8577;
+    }
+    .note-footer a { color: #477dca; text-decoration: none; }
+    .note-footer a:hover { text-decoration: underline; }
+    @media (prefers-reduced-motion: no-preference) {
+      .note > * { animation: note-rise .7s ease both; }
+      .note > *:nth-child(2) { animation-delay: .08s; }
+      .note > *:nth-child(3) { animation-delay: .16s; }
+      .note > *:nth-child(n+4) { animation-delay: .24s; }
+      @keyframes note-rise {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: none; }
+      }
+    }
+  </style>
+
+  <main class="page-content note-page" aria-label="Content">
+    <article class="note">
+      <p class="note-kicker"><a href="{{ '/notes/' | relative_url }}">Field Notes</a></p>
+      <h1 class="note-title">{{ page.title }}</h1>
+      {%- if page.lead -%}
+        <p class="note-lead">{{ page.lead }}</p>
+      {%- endif -%}
+      <span class="note-date">{{ page.date | date: "%B %-d, %Y" }} &middot; {{ site.name }}{% if page.linkedin %} &middot; <a href="{{ page.linkedin }}" style="color:#8b8577;">first published on LinkedIn</a>{% endif %}</span>
+      <hr class="note-rule">
+      <div class="note-body">
+        {{ content }}
+      </div>
+      <footer class="note-footer">
+        <a href="{{ '/notes/' | relative_url }}">&larr; All notes</a>
+        <a href="{{ '/' | relative_url }}">Home</a>
+      </footer>
+    </article>
+  </main>
+
+  {%- include footer.html -%}
+  {% if site.darkmode == false %}
+    <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
+  {% endif %}
+
+</body>
+
+</html>
