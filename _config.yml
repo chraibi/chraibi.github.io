@@ -35,9 +35,9 @@ additional_links:
 - title: Google Scholar
   icon: fas fa-graduation-cap
   url: https://scholar.google.com/citations?user=WA1blukAAAAJ
-- title: Consulting
-  icon: fas fa-briefcase
-  url: /consulting/
+# - title: Consulting
+#   icon: fas fa-briefcase
+#   url: /consulting/
 - title: Field Notes
   icon: fas fa-pen-nib
   url: /notes/
@@ -65,8 +65,6 @@ about_content: | # this will include new lines to allow paragraphs
   I'm passionate about open source software for simulating, analyzing and visualizing pedestrian dynamics, which I believe is fundamental to good scientific practice.
   
   To help grow our research community, I maintain a website that collects useful information and news about pedestrian dynamics at <i class="fas fa-globe"></i> [pedestriandynamics.org](https://pedestriandynamics.org/) and a GitHub-organisation at <i class="fab fa-github"></i> [github.com/PedestrianDynamics](https://github.com/PedestrianDynamics/).
-
-  Alongside my research, I take on selected independent consulting engagements in pedestrian simulation, JuPedSim workflows, and crowd analysis — see <i class="fas fa-briefcase"></i> [Consulting](/consulting/).
 
   ------
   
@@ -157,16 +155,16 @@ content:
         description: | # this will include new lines to allow paragraphs
           For the first time, we explore external validity and cross-cultural generalizability by conducting the same experiment in five different countries. Each study examines the impact of varying gender compositions on single-file pedestrian movement. Our findings reveal consistent effects of gender composition across all locations, with no significant deviations in the fundamental diagrams, particularly in the bounded regime.
 
-  - title: Independent Scientific Consulting
-    layout: text
-    content: | # this will include new lines to allow paragraphs
-      Pedestrian dynamics · crowd simulation · JuPedSim workflows · simulation review · training · prototyping.
+#  - title: Independent Scientific Consulting
+#    layout: text
+#    content: | # this will include new lines to allow paragraphs
+#      Pedestrian dynamics · crowd simulation · JuPedSim workflows · simulation review · training · prototyping.
 
-      For research groups, planning offices, mobility companies, and infrastructure stakeholders that need pedestrian simulation done in a scientifically sound, reproducible, and practical way.
+#      For research groups, planning offices, mobility companies, and infrastructure stakeholders that need pedestrian simulation done in a scientifically sound, reproducible, and practical way.
 
-      <i class="fas fa-briefcase"></i> [See services and contact &rarr;](/consulting/)
+#      <i class="fas fa-briefcase"></i> [See services and contact &rarr;](/consulting/)
 
-      <small><em>Independent consulting by Mohcine Chraibi. This activity is separate from my employment at Forschungszentrum Jülich; no institutional endorsement is implied.</em></small>
+#      <small><em>Independent consulting by Mohcine Chraibi. This activity is separate from my employment at Forschungszentrum Jülich; no institutional endorsement is implied.</em></small>
 
   - title: Experience # Title for the section
     layout: list # Type of content section (list/text)

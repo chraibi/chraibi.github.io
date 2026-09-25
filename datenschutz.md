@@ -50,7 +50,3 @@ Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu b
 ## 8. Aktualität
 
 Diese Datenschutzerklärung wird angepasst, sobald sich die Website oder die eingesetzten Dienste ändern.
-
----
-
-[Impressum](/impressum/)
