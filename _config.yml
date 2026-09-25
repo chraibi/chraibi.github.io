@@ -41,6 +41,9 @@ additional_links:
 - title: Field Notes
   icon: fas fa-pen-nib
   url: /notes/
+- title: Home
+  icon: fas fa-home
+  url: /
 # - title: jupedsim
 #   icon: fas fa-globe
 #   url: https://www.jupedsim.org
