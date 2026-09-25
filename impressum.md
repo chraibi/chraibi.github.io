@@ -1,41 +1,31 @@
 ---
-published: false
 layout: page
 title: "Impressum"
 permalink: /impressum/
 description: "Impressum / Legal notice for chraibi.de"
 ---
 
-*Legal notice according to § 5 DDG (German Digital Services Act).*
+*Legal notice according to § 18 MStV (German Interstate Media Treaty).*
 
-## Angaben gemäß § 5 DDG
+## Angaben gemäß § 18 Abs. 1 MStV
 
 Dr. Mohcine Chraibi<br>
-Wissenschaftlich-technische Beratung<br>
-52349 Düren<br>
+c/o Forschungszentrum Jülich GmbH<br>
+Wilhelm-Johnen-Straße<br>
+52428 Jülich<br>
 Deutschland
 
 ## Kontakt
 
-E-Mail: [consulting@chraibi.de](mailto:consulting@chraibi.de)<br>
-
-## Umsatzsteuer-ID
-
-Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
-DE436290655
+E-Mail: m.chraibi [at] fz-juelich.de
 
 ## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
-Dr. Mohcine Chraibi<br>
-52349 Düren
+Dr. Mohcine Chraibi (Anschrift wie oben)
 
 ## Hinweis
 
-Die Beratungstätigkeit erfolgt unabhängig und in eigener Verantwortung von Mohcine Chraibi. Eine institutionelle Unterstützung oder Billigung ist damit nicht verbunden.
-
-## Verbraucherstreitbeilegung
-
-Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+Diese Website ist eine persönliche, nicht-kommerzielle Seite zu meiner wissenschaftlichen Arbeit.
 
 ## Haftung für Links
 
