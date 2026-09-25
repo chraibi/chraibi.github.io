@@ -10,8 +10,8 @@ description: "Datenschutzerklärung / Privacy policy for chraibi.de"
 ## 1. Verantwortlicher
 
 Dr. Mohcine Chraibi<br>
-52349 Düren, Deutschland<br>
-E-Mail: [consulting@chraibi.de](mailto:consulting@chraibi.de)
+c/o Forschungszentrum Jülich GmbH, Wilhelm-Johnen-Straße, 52428 Jülich, Deutschland<br>
+E-Mail: m.chraibi [at] fz-juelich.de
 
 ## 2. Überblick
 
@@ -29,7 +29,7 @@ Dabei können Daten in die USA übermittelt werden. GitHub ist unter dem EU-US D
 
 Wenn Sie mich per E-Mail kontaktieren, werden Ihre Angaben (E-Mail-Adresse, Name, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern die Anfrage auf einen Vertrag oder vorvertragliche Maßnahmen gerichtet ist, im Übrigen Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).
 
-Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist, sofern keine gesetzlichen Aufbewahrungspflichten (z. B. nach Handels- oder Steuerrecht) entgegenstehen. Der E-Mail-Dienst wird von adminflex als Auftragsverarbeiter bereitgestellt.
+Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist, sofern keine gesetzlichen Aufbewahrungspflichten (z. B. nach Handels- oder Steuerrecht) entgegenstehen.
 
 ## 5. Eingebettete YouTube-Videos
 
@@ -50,3 +50,7 @@ Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu b
 ## 8. Aktualität
 
 Diese Datenschutzerklärung wird angepasst, sobald sich die Website oder die eingesetzten Dienste ändern.
+
+---
+
+[Impressum](/impressum/)
